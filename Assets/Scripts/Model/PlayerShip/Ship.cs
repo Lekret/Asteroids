@@ -24,7 +24,7 @@ namespace Model.PlayerShip
 
         public void Destroy()
         {
-            
+            Destroyed?.Invoke();
         }
     }
 }
