@@ -1,6 +1,8 @@
-﻿using Game.PlayerShip;
+﻿using Game.PlayerShip.Movement;
+using Game.PlayerShip.Rotation;
+using View;
 
-namespace View.Factories
+namespace Services.PlayerShit
 {
     public interface IShipViewFactory
     {

@@ -1,12 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Game.PlayerShip
+namespace Game.PlayerShip.Movement
 {
     public interface IShipMovement
     {
         event Action<Vector2> PositionChanged;
         Vector2 Position { get; set; }
         void SetForwardInput(float forwardInput);
+        void Update(float currentRotation, float deltaTime);
     }
 }

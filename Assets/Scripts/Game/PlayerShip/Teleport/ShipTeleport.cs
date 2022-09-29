@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Game.PlayerShip.Movement;
+using UnityEngine;
 
-namespace Game.PlayerShip
+namespace Game.PlayerShip.Teleport
 {
-    public class ShipTeleport
+    public class ShipTeleport : IShipTeleport
     {
         private readonly Bounds _mapBounds;
         private readonly IShipMovement _shipMovement;

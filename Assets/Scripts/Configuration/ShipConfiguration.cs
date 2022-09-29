@@ -10,12 +10,16 @@ namespace Configuration
         [SerializeField] private float _inertiaDrop;
         [SerializeField] private float _maxSpeed;
         [SerializeField] private float _rotationSpeed;
-        [SerializeField] private ShipView _prefab;
+        [SerializeField] private ShipView _shipPrefab;
+        [SerializeField] private BulletView _bulletPrefab;
+        [SerializeField] private LaserView _laserPrefab;
 
         public float Acceleration => _acceleration;
         public float InertiaDrop => _inertiaDrop;
         public float MaxSpeed => _maxSpeed;
         public float RotationSpeed => _rotationSpeed;
-        public ShipView Prefab => _prefab;
+        public ShipView ShipPrefab => _shipPrefab;
+        public BulletView BulletPrefab => _bulletPrefab;
+        public LaserView LaserPrefab => _laserPrefab;
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Game.PlayerShip;
 
-namespace Game.Factories
+namespace Services.PlayerShit
 {
     public interface IShipFactory
     {

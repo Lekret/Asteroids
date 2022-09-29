@@ -6,13 +6,11 @@ namespace Infrastructure
     public class InputRouter
     {
         private readonly PlayerControls _controls = new PlayerControls();
-        private readonly IShipMovement _shipMovement;
-        private readonly IShipRotation _shipRotation;
+        private readonly Ship _ship;
 
-        public InputRouter(IShipMovement shipMovement, IShipRotation shipRotation)
+        public InputRouter(Ship ship)
         {
-            _shipMovement = shipMovement;
-            _shipRotation = shipRotation;
+            _ship = ship;
         }
 
         public void PerformRouting()
@@ -26,12 +24,12 @@ namespace Infrastructure
 
         private void SetShipForwardInput(InputAction.CallbackContext ctx)
         { 
-            _shipMovement.SetForwardInput(ctx.ReadValue<float>());
+            _ship.Movement.SetForwardInput(ctx.ReadValue<float>());
         }
         
         private void SetShipRotationInput(InputAction.CallbackContext ctx)
         { 
-            _shipRotation.SetRotationInput(ctx.ReadValue<float>());
+            _ship.Rotation.SetRotationInput(ctx.ReadValue<float>());
         }
     }
 }

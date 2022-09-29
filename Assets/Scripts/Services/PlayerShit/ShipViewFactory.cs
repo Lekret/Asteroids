@@ -1,7 +1,9 @@
-﻿using Game.PlayerShip;
+﻿using Game.PlayerShip.Movement;
+using Game.PlayerShip.Rotation;
 using UnityEngine;
+using View;
 
-namespace View.Factories
+namespace Services.PlayerShit
 {
     public class ShipViewFactory : IShipViewFactory
     {

@@ -1,9 +1,8 @@
 using Configuration;
-using Game.Factories;
 using Game.PlayerShip;
+using Services.PlayerShit;
 using UnityEngine;
 using Utils;
-using View.Factories;
 
 namespace Infrastructure
 {
@@ -18,8 +17,8 @@ namespace Infrastructure
         {
             var mapBounds = CalculateMapBounds();
             _ship = new ShipFactory(_shipConfiguration, mapBounds).Create();
-            new InputRouter(_ship.Movement, _ship.Rotation).PerformRouting();
-            new ShipViewFactory(_shipConfiguration.Prefab).Create(_ship.Movement, _ship.Rotation);
+            new InputRouter(_ship).PerformRouting();
+            new ShipViewFactory(_shipConfiguration.ShipPrefab).Create(_ship.Movement, _ship.Rotation);
         }
 
         private Bounds CalculateMapBounds()

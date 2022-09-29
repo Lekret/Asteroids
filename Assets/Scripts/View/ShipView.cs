@@ -1,4 +1,5 @@
-﻿using Game.PlayerShip;
+﻿using Game.PlayerShip.Movement;
+using Game.PlayerShip.Rotation;
 using UnityEngine;
 
 namespace View
