@@ -1,9 +1,9 @@
 ﻿using Configuration;
-using Game.PlayerShip;
-using Game.PlayerShip.Movement;
-using Game.PlayerShip.Rotation;
-using Game.PlayerShip.Teleport;
-using Game.PlayerShip.Weapon;
+using Model.PlayerShip;
+using Model.PlayerShip.Movement;
+using Model.PlayerShip.Rotation;
+using Model.PlayerShip.Teleport;
+using Model.PlayerShip.Weapon;
 using Services.Weapon;
 using UnityEngine;
 

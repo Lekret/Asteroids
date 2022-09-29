@@ -1,4 +1,4 @@
-﻿namespace Game.PlayerShip.Weapon
+﻿namespace Model.PlayerShip.Weapon
 {
     public class Laser
     {

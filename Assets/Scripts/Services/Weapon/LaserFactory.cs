@@ -1,4 +1,4 @@
-﻿using Game.PlayerShip.Weapon;
+﻿using Model.PlayerShip.Weapon;
 using UnityEngine;
 using View;
 
@@ -15,9 +15,9 @@ namespace Services.Weapon
 
         public Laser Create()
         {
-            var laserView = Object.Instantiate(_prefab);
+            var view = Object.Instantiate(_prefab);
             var laser = new Laser();
-            laserView.Init(laser);
+            view.Init(laser);
             return laser;
         }
     }

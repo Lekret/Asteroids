@@ -1,4 +1,4 @@
-﻿namespace Game.Asteroids
+﻿namespace Model.Asteroids
 {
     public class Asteroid
     {

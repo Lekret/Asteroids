@@ -1,4 +1,4 @@
-﻿using Game.PlayerShip;
+﻿using Model.PlayerShip;
 using UnityEngine.InputSystem;
 
 namespace Infrastructure

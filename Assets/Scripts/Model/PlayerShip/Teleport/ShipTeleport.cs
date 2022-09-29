@@ -1,7 +1,7 @@
-﻿using Game.PlayerShip.Movement;
+﻿using Model.PlayerShip.Movement;
 using UnityEngine;
 
-namespace Game.PlayerShip.Teleport
+namespace Model.PlayerShip.Teleport
 {
     public class ShipTeleport : IShipTeleport
     {

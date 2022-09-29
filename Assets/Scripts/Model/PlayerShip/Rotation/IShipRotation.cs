@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Game.PlayerShip.Rotation
+namespace Model.PlayerShip.Rotation
 {
     public interface IShipRotation
     {

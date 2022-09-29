@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿using Model.Ufos;
+using UnityEngine;
 
 namespace View
 {
     public class UfoView : MonoBehaviour
     {
-        
+        public void Init(Ufo ufo)
+        {
+            
+        }
     }
 }

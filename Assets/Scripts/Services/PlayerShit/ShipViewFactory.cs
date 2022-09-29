@@ -1,5 +1,5 @@
-﻿using Game.PlayerShip.Movement;
-using Game.PlayerShip.Rotation;
+﻿using Model.PlayerShip.Movement;
+using Model.PlayerShip.Rotation;
 using UnityEngine;
 using View;
 
@@ -16,9 +16,9 @@ namespace Services.PlayerShit
 
         public ShipView Create(IShipMovement shipMovement, IShipRotation shipRotation)
         {
-            var shipView = Object.Instantiate(_prefab);
-            shipView.Init(shipMovement, shipRotation);
-            return shipView;
+            var view = Object.Instantiate(_prefab);
+            view.Init(shipMovement, shipRotation);
+            return view;
         }
     }
 }

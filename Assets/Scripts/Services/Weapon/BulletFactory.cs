@@ -1,4 +1,4 @@
-﻿using Game.PlayerShip.Weapon;
+﻿using Model.PlayerShip.Weapon;
 using UnityEngine;
 using View;
 
@@ -15,9 +15,9 @@ namespace Services.Weapon
 
         public Bullet Create()
         {
-            var bulletView = Object.Instantiate(_prefab);
+            var view = Object.Instantiate(_prefab);
             var bullet = new Bullet();
-            bulletView.Init(bullet);
+            view.Init(bullet);
             return bullet;
         }
     }

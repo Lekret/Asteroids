@@ -1,4 +1,4 @@
-﻿using Game.PlayerShip;
+﻿using Model.PlayerShip;
 
 namespace Services.PlayerShit
 {

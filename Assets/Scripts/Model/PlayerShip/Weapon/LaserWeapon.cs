@@ -1,6 +1,6 @@
 ﻿using Services.Weapon;
 
-namespace Game.PlayerShip.Weapon
+namespace Model.PlayerShip.Weapon
 {
     public class LaserWeapon : IShipWeapon
     {

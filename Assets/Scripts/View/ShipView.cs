@@ -1,5 +1,5 @@
-﻿using Game.PlayerShip.Movement;
-using Game.PlayerShip.Rotation;
+﻿using Model.PlayerShip.Movement;
+using Model.PlayerShip.Rotation;
 using UnityEngine;
 
 namespace View

@@ -1,4 +1,4 @@
-﻿using Game.PlayerShip.Weapon;
+﻿using Model.PlayerShip.Weapon;
 using UnityEngine;
 
 namespace View

@@ -1,4 +1,4 @@
-﻿namespace Game.Ufos
+﻿namespace Model.Ufos
 {
     public class Ufo
     {

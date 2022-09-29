@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Game.PlayerShip.Movement
+namespace Model.PlayerShip.Movement
 {
     public class ShipMovement : IShipMovement
     {

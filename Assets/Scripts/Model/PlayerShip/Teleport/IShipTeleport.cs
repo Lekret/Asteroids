@@ -1,4 +1,4 @@
-﻿namespace Game.PlayerShip.Teleport
+﻿namespace Model.PlayerShip.Teleport
 {
     public interface IShipTeleport
     {

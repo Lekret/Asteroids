@@ -1,5 +1,5 @@
 using Configuration;
-using Game.PlayerShip;
+using Model.PlayerShip;
 using Services.PlayerShit;
 using UnityEngine;
 using Utils;
