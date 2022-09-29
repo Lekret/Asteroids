@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6aee0791ca849a490f8b9530636eca5, type: 3}
   m_Name: UiConfiguration
   m_EditorClassIdentifier: 
+  _root: {fileID: 7456240397295539107, guid: f0c6817cdfa6b4842aacdbe05385a08f, type: 3}
+  _gameOverPrefab: {fileID: 4828285308854372024, guid: 50f18347d151d134baa9c6a93828d24e, type: 3}
+  _shipInfoPrefab: {fileID: 4714567343443275367, guid: 5de18a2739b120f4687705e09b073501, type: 3}

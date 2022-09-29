@@ -14,7 +14,7 @@ namespace Model.PlayerShip
         public IShipMovement Movement { get; set; }
         public IShipRotation Rotation { get; set; }
         public IShipWeapon PrimaryWeapon { get; set; }
-        public IShipWeapon SecondaryWeapon { get; set; }
+        public ILaserWeapon SecondaryWeapon { get; set; }
         public event Action Destroyed;
 
         public void Update(float deltaTime)

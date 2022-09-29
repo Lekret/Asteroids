@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Model.PlayerShip.Weapon
 {
-    public class LaserWeapon : IShipWeapon
+    public class LaserWeapon : ILaserWeapon
     {
         private readonly ILaserFactory _laserFactory;
         private readonly int _maxAmmo;

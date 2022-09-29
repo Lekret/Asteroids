@@ -9,7 +9,8 @@ namespace Model.PlayerShip
         IShipMovement Movement { get; }
         IShipRotation Rotation { get; }
         IShipWeapon PrimaryWeapon { get; }
-        IShipWeapon SecondaryWeapon { get; }
+        ILaserWeapon SecondaryWeapon { get; }
+        ILaserCooldown LaserCooldown { get; }
         void Update(float deltaTime);
         void FixedUpdate(float deltaTime);
     }

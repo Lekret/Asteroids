@@ -20,6 +20,8 @@ namespace Model.PlayerShip.Movement
         }
 
         public event Action<Vector2> PositionChanged;
+        public event Action<Vector2> VelocityChanged;
+        public Vector2 Velocity => _velocity;
         public Vector2 Position
         {
             get => _position;
@@ -38,6 +40,7 @@ namespace Model.PlayerShip.Movement
             _position += _velocity * deltaTime;
             _velocity = Vector2.Lerp(_velocity, Vector2.zero, _inertiaDrop * deltaTime);
             PositionChanged?.Invoke(_position);
+            VelocityChanged?.Invoke(_velocity);
         }
 
         public void SetForwardInput(float forwardInput)

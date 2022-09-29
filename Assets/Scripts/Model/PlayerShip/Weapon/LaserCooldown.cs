@@ -15,6 +15,7 @@ namespace Model.PlayerShip.Weapon
             _laserWeapon.Shot += OnShot;
         }
 
+        public float Cooldown => _cooldown;
         public event Action<float> CooldownChanged;
         
         private void OnShot()
