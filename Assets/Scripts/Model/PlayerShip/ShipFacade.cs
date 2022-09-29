@@ -1,4 +1,5 @@
-﻿using Model.PlayerShip.Movement;
+﻿using Model.PlayerShip.Collision;
+using Model.PlayerShip.Movement;
 using Model.PlayerShip.Rotation;
 using Model.PlayerShip.Teleport;
 using Model.PlayerShip.Weapon;
@@ -12,6 +13,7 @@ namespace Model.PlayerShip
         public IShipRotation Rotation { get; set; }
         public IShipWeapon PrimaryWeapon { get; set; }
         public IShipWeapon SecondaryWeapon { get; set; }
+        public IShipCollider Collider { get; set; }
 
         public void Update(float deltaTime)
         {

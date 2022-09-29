@@ -30,5 +30,13 @@ namespace View
         {
             transform.rotation = rotation;
         }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out ShipKiller _))
+            {
+                _ship.Collider.Collide();
+            }
+        }
     }
 }

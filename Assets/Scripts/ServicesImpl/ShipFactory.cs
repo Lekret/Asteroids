@@ -1,6 +1,7 @@
 ﻿using Configuration;
 using Model.GameMap;
 using Model.PlayerShip;
+using Model.PlayerShip.Collision;
 using Model.PlayerShip.Movement;
 using Model.PlayerShip.Rotation;
 using Model.PlayerShip.Teleport;
@@ -39,6 +40,7 @@ namespace ServicesImpl
             ship.Teleport = teleport;
             ship.PrimaryWeapon = primaryWeapon;
             ship.SecondaryWeapon = secondaryWeapon;
+            ship.Collider = new ShipCollider();
             var view = Object.Instantiate(_configuration.ShipPrefab);
             view.Init(ship);
             return ship;
