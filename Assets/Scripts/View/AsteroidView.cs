@@ -12,6 +12,7 @@ namespace View
             _asteroid = asteroid;
             _asteroid.PositionChanged += SetPosition;
             SetPosition(_asteroid.Position);
+            transform.rotation = Random.rotation;
         }
 
         private void OnDestroy()
