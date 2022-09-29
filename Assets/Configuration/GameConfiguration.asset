@@ -12,23 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c72ad7e091324ed9acc1529bb3c5f185, type: 3}
   m_Name: GameConfiguration
   m_EditorClassIdentifier: 
+  _ufoSpeed: 2
+  _bigAsteroidSpeed: 5
+  _smallAsteroidSpeed: 8
+  _asteroidLifetime: 15
+  _asteroidPrefab: {fileID: 7640777231031094822, guid: 3385756fed74b404f94792dd19061a6d, type: 3}
+  _ufoPrefab: {fileID: -8518494576562963084, guid: e11dcfab1d9173a49839a9bd910018ca, type: 3}
   _timeUntilSpawnCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0.040359497
-      value: 1.9427795
-      inSlope: -0.10199919
-      outSlope: -0.10199919
+      value: 3.9295044
+      inSlope: -0.08274328
+      outSlope: -0.08274328
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 14.010352
-      value: 0.51785165
-      inSlope: -0.10199919
-      outSlope: -0.10199919
+      time: 30.052193
+      value: 1.4462268
+      inSlope: -0.08274328
+      outSlope: -0.08274328
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -36,9 +42,3 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _ufoSpeed: 3
-  _bigAsteroidSpeed: 5
-  _smallAsteroidSpeed: 8
-  _asteroidLifetime: 15
-  _asteroidPrefab: {fileID: 7640777231031094822, guid: 3385756fed74b404f94792dd19061a6d, type: 3}
-  _ufoPrefab: {fileID: -8518494576562963084, guid: e11dcfab1d9173a49839a9bd910018ca, type: 3}
