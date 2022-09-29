@@ -16,19 +16,28 @@ namespace Model.GameMap
 
         public Bounds Bounds => _bounds;
         
+        public Vector2 RandomInnerPoint()
+        {
+            var point = _bounds.center;
+            var extents = _bounds.extents;
+            point.x += _randomizer.Range(-extents.x, extents.x);
+            point.y += _randomizer.Range(-extents.y, extents.y);
+            return point;
+        }
+        
         public Vector2 RandomOuterPoint()
         {
-            var sign = _randomizer.Range(-1, 1);
+            var sign = _randomizer.Boolean() ? 1 : -1;
             var extents = _bounds.extents;
-            if (_randomizer.Range(0f, 1f) < 0.5f)
+            if (_randomizer.Boolean())
             {
                 var x = _randomizer.Range(-extents.x, extents.x);
-                var y = extents.y * sign;
+                var y = (extents.y + 1) * sign;
                 return new Vector2(x, y);
             }
             else
             {
-                var x = extents.x * sign;
+                var x = (extents.x + 1) * sign;
                 var y = _randomizer.Range(-extents.y, extents.y);
                 return new Vector2(x, y);
             }

@@ -14,10 +14,5 @@ namespace ServicesImpl
         {
             return Random.Range(min, max);
         }
-
-        public Vector2 RandomDirection()
-        {
-            return Random.insideUnitCircle.normalized;
-        }
     }
 }

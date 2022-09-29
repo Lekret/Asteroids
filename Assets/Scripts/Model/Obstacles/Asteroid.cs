@@ -12,8 +12,8 @@ namespace Model.Obstacles
 
         public Asteroid(Vector2 position, Vector2 direction, float lifetime)
         {
-            _direction = direction;
             _position = position;
+            _direction = direction;
             _lifetime = new Lifetime(lifetime);
         }
 

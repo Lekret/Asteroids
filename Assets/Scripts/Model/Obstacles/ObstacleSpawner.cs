@@ -37,8 +37,7 @@ namespace Model.Obstacles
 
         private void SpawnObstacle()
         {
-            var rnd = _randomizer.Range(0f, 1f);
-            if (rnd < 0.5f)
+            if (_randomizer.Boolean())
             {
                 _asteroidFactory.Create();
             }
