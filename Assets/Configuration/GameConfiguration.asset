@@ -15,7 +15,7 @@ MonoBehaviour:
   _ufoSpeed: 1.5
   _bigAsteroidSpeed: 3
   _smallAsteroidSpeed: 6
-  _asteroidLifetime: 15
+  _asteroidLifetime: 10
   _bigAsteroidPrefab: {fileID: 7640777231031094822, guid: 3385756fed74b404f94792dd19061a6d, type: 3}
   _smallAsteroidPrefab: {fileID: 7640777231031094822, guid: 4b23f1bfffc861545a723d895e0410c2, type: 3}
   _ufoPrefab: {fileID: -8518494576562963084, guid: e11dcfab1d9173a49839a9bd910018ca, type: 3}
