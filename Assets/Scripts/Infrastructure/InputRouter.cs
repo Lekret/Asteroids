@@ -6,7 +6,7 @@ namespace Infrastructure
     public class InputRouter
     {
         private readonly PlayerControls _controls = new PlayerControls();
-        private IShip _ship;
+        private readonly IShip _ship;
 
         public InputRouter(IShip ship)
         {

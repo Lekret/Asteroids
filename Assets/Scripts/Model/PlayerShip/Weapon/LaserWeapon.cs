@@ -17,12 +17,14 @@ namespace Model.PlayerShip.Weapon
             _ammo = maxAmmo;
         }
 
-        public event Action Shot;
+        public event Action AmmoChanged;
+        public int MaxAmmo => _maxAmmo;
         public int Ammo => _ammo;
         
         public void AddAmmo()
         {
             _ammo = Mathf.Min(_ammo + 1, _maxAmmo);
+            AmmoChanged?.Invoke();
         }
 
         public void Use()
@@ -31,7 +33,7 @@ namespace Model.PlayerShip.Weapon
                 return;
             _laserFactory.Create();
             _ammo--;
-            Shot?.Invoke();
+            AmmoChanged?.Invoke();
         }
     }
 }

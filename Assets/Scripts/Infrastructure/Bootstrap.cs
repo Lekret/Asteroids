@@ -1,7 +1,10 @@
 using Configuration;
 using Factories.Impl;
 using Model.GameMap;
+using Model.Hazards;
+using Model.Score;
 using Services.Randomizer;
+using Services.SceneLoader;
 using UnityEngine;
 using Utils;
 
@@ -12,13 +15,16 @@ namespace Infrastructure
         [SerializeField] private Camera _camera;
         [SerializeField] private ShipConfiguration _shipConfiguration;
         [SerializeField] private HazardConfiguration _hazardConfiguration;
+        [SerializeField] private UiConfiguration _uiConfiguration;
 
-        private GameLoop _gameLoop;
+        private IHazardSpawner _hazardSpawner;
         
         private void Start()
         {
             var randomizer = new Randomizer();
             var mapBounds = CalculateMapBounds();
+            var scoreCounter = new ScoreCounter();
+            var sceneLoader = new SceneLoader();
             var map = new Map(mapBounds, randomizer);
             var shipFactory = new ShipFactory(_shipConfiguration, map);
             var ship = shipFactory.Create();
@@ -29,14 +35,20 @@ namespace Infrastructure
                 ufoFactory, 
                 randomizer, 
                 _hazardConfiguration);
-            var hazardSpawner = hazardSpawnerFactory.Create();
+            _hazardSpawner = hazardSpawnerFactory.Create();
+            var uiFactory = new UiFactory(_uiConfiguration, ship, scoreCounter, sceneLoader);
             new InputRouter(ship).Run();
-            _gameLoop = new GameLoop(hazardSpawner);
+            uiFactory.InitRoot();
+            uiFactory.CreateShipInfo();
+            ship.Destroyed += () =>
+            {
+                uiFactory.CreateGameOver();
+            };
         }
         
         private void Update()
         {
-            _gameLoop.Update(Time.deltaTime);
+            _hazardSpawner.Update(Time.deltaTime);
         }
 
         private Bounds CalculateMapBounds()

@@ -20,7 +20,7 @@ namespace Ui
             _ship.Movement.PositionChanged += SetPosition;
             _ship.Rotation.Changed += SetRotationAngle;
             _ship.Movement.VelocityChanged += SetInstantaneousVelocity;
-            _ship.SecondaryWeapon.Shot += SetLaserAmmo;
+            _ship.SecondaryWeapon.AmmoChanged += SetLaserAmmo;
             _ship.LaserCooldown.CooldownChanged += SetLaserCooldown;
             SetLaserCooldown(_ship.LaserCooldown.Cooldown);
             SetLaserAmmo();
@@ -31,23 +31,24 @@ namespace Ui
             _ship.Movement.PositionChanged -= SetPosition;
             _ship.Rotation.Changed -= SetRotationAngle;
             _ship.Movement.VelocityChanged -= SetInstantaneousVelocity;
-            _ship.SecondaryWeapon.Shot -= SetLaserAmmo;
+            _ship.SecondaryWeapon.AmmoChanged -= SetLaserAmmo;
             _ship.LaserCooldown.CooldownChanged -= SetLaserCooldown;
         }
 
         private void SetPosition(Vector2 position)
         {
-            _shipPosition.text = $"X:{position.x} Y:{position.y}";
+            _shipPosition.text = $"Position: X:{position.x:F2} Y:{position.y:F2}";
         }
         
         private void SetRotationAngle(Quaternion rotation)
         {
-            _shipRotation.text = $"Rotation: {rotation.z}";
+            _shipRotation.text = $"Rotation: {(int) rotation.z}";
         }
         
         private void SetInstantaneousVelocity(Vector2 velocity)
         {
-            _instantaneousVelocity.text = $"Velocity: {velocity * Time.deltaTime}";
+            var instVel = velocity * Time.deltaTime;
+            _instantaneousVelocity.text = $"Velocity: X:{instVel.x:F2} Y:{instVel.y:F2}";
         }
         
         private void SetLaserAmmo()
@@ -57,7 +58,7 @@ namespace Ui
 
         private void SetLaserCooldown(float cooldown)
         {
-            _laserCooldown.text = $"Laser cooldown: {cooldown}";
+            _laserCooldown.text = $"Laser cooldown: {(int) cooldown}";
         }
     }
 }
