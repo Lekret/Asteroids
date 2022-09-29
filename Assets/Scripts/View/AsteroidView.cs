@@ -15,7 +15,7 @@ namespace View
             _asteroid = asteroid;
             _positionView.Init(asteroid);
             _destroyableView.Init(asteroid);
-            transform.rotation = Random.rotation;
+            transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
         }
 
         private void Update()
