@@ -1,22 +1,24 @@
-﻿using Model.PlayerShip.Movement;
+﻿using Model.GameMap;
+using Model.PlayerShip.Movement;
 using UnityEngine;
 
 namespace Model.PlayerShip.Teleport
 {
     public class ShipTeleport : IShipTeleport
     {
-        private readonly Bounds _mapBounds;
+        private readonly IMap _map;
         private readonly IShipMovement _shipMovement;
 
-        public ShipTeleport(Bounds mapBounds, IShipMovement shipMovement)
+        public ShipTeleport(IMap map, IShipMovement shipMovement)
         {
-            _mapBounds = mapBounds;
+            _map = map;
             _shipMovement = shipMovement;
         }
 
         public void Update()
         {
-            var teleportPosition = GetTeleportPosition(_shipMovement.Position, _mapBounds.min, _mapBounds.max);
+            var mapBounds = _map.Bounds;
+            var teleportPosition = GetTeleportPosition(_shipMovement.Position, mapBounds.min, mapBounds.max);
             if (teleportPosition.HasValue)
             {
                 _shipMovement.Position = teleportPosition.Value;

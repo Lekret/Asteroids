@@ -1,26 +1,28 @@
-﻿using Model.PlayerShip.Movement;
-using Model.PlayerShip.Rotation;
+﻿using Model.PlayerShip;
 using UnityEngine;
 
 namespace View
 {
     public class ShipView : MonoBehaviour
     {
-        private IShipMovement _shipMovement;
-        private IShipRotation _shipRotation;
+        private IShip _ship;
 
-        public void Init(IShipMovement shipMovement, IShipRotation shipRotation)
+        public void Init(IShip ship)
         {
-            _shipMovement = shipMovement;
-            _shipRotation = shipRotation;
-            _shipMovement.PositionChanged += SetPosition;
-            _shipRotation.Changed += SetRotation;
+            _ship = ship;
+            _ship.Movement.PositionChanged += SetPosition;
+            _ship.Rotation.Changed += SetRotation;
         }
 
         private void OnDestroy()
         {
-            _shipMovement.PositionChanged -= SetPosition;
-            _shipRotation.Changed -= SetRotation;
+            _ship.Movement.PositionChanged -= SetPosition;
+            _ship.Rotation.Changed -= SetRotation;
+        }
+        
+        private void Update()
+        {
+            _ship.Update(Time.deltaTime);
         }
 
         private void SetPosition(Vector2 position)

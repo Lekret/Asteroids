@@ -13,7 +13,7 @@ namespace Infrastructure
             _ship = ship;
         }
 
-        public void PerformRouting()
+        public void Run()
         {
             _controls.Enable();
             var shipMap = _controls.ShipMap;

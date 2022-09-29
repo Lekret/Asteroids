@@ -1,23 +1,26 @@
-﻿using Model.Obstacles;
+﻿using Configuration;
+using Model.Obstacles;
+using Model.PlayerShip.Movement;
 using Services;
 using UnityEngine;
-using View;
 
 namespace ServicesImpl
 {
     public class UfoFactory : IUfoFactory
     {
-        private readonly UfoView _prefab;
+        private readonly IUfoConfiguration _configuration;
+        private readonly IShipMovement _shipMovement;
 
-        public UfoFactory(UfoView prefab)
+        public UfoFactory(IUfoConfiguration configuration, IShipMovement shipMovement)
         {
-            _prefab = prefab;
+            _configuration = configuration;
+            _shipMovement = shipMovement;
         }
 
         public IUfo Create()
         {
-            var view = Object.Instantiate(_prefab);
-            var ufo = new Ufo();
+            var view = Object.Instantiate(_configuration.UfoPrefab);
+            var ufo = new Ufo(_shipMovement, _configuration.UfoSpeed);
             view.Init(ufo);
             return ufo;
         }

@@ -1,5 +1,5 @@
 using Configuration;
-using Model.PlayerShip;
+using Model.GameMap;
 using ServicesImpl;
 using UnityEngine;
 using Utils;
@@ -10,14 +10,16 @@ namespace Infrastructure
     {
         [SerializeField] private Camera _camera;
         [SerializeField] private ShipConfiguration _shipConfiguration;
-        
-        private IShip _ship;
+        [SerializeField] private GameConfiguration _gameConfiguration;
         
         private void Start()
         {
+            var randomizer = new Randomizer();
             var mapBounds = CalculateMapBounds();
-            _ship = new ShipFactory(_shipConfiguration, mapBounds).Create();
-            new InputRouter(_ship).PerformRouting();
+            var map = new Map(mapBounds, randomizer);
+            var shipFactory = new ShipFactory(_shipConfiguration, map);
+            var ship = shipFactory.Create();
+            new InputRouter(ship).Run();
         }
 
         private Bounds CalculateMapBounds()
@@ -26,11 +28,6 @@ namespace Infrastructure
             var mapAdditionalSize = Vector3.one;
             mapBounds.size += mapAdditionalSize;
             return mapBounds;
-        }
-
-        private void Update()
-        {
-            _ship.Update(Time.deltaTime);
         }
     }
 }

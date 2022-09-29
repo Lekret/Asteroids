@@ -7,6 +7,8 @@ namespace Model.PlayerShip
 {
     public class Ship : IShip
     {
+        private readonly IShipTeleport _teleport;
+        
         public Ship(
             IShipMovement movement, 
             IShipRotation rotation,
@@ -16,14 +18,13 @@ namespace Model.PlayerShip
         {
             Movement = movement;
             Rotation = rotation;
-            Teleport = teleport;
+            _teleport = teleport;
             PrimaryWeapon = primaryWeapon;
             SecondaryWeapon = secondaryWeapon;
         }
 
         public IShipMovement Movement { get; }
         public IShipRotation Rotation { get; }
-        public IShipTeleport Teleport { get; }
         public IShipWeapon PrimaryWeapon { get; }
         public IShipWeapon SecondaryWeapon { get; }
 
@@ -31,7 +32,7 @@ namespace Model.PlayerShip
         {
             Rotation.Update(deltaTime);
             Movement.Update(Rotation.Current, deltaTime);
-            Teleport.Update();
+            _teleport.Update();
         }
     }
 }

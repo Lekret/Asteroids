@@ -16,4 +16,6 @@ MonoBehaviour:
   _inertiaDrop: 3
   _maxSpeed: 5
   _rotationSpeed: 240
-  _prefab: {fileID: 350583983711806268, guid: 72be568e317d2cd47a119904f13140d2, type: 3}
+  _shipPrefab: {fileID: 350583983711806268, guid: 72be568e317d2cd47a119904f13140d2, type: 3}
+  _bulletPrefab: {fileID: 2272653372400664704, guid: bdeff933a151fa34c8cdb24473407a16, type: 3}
+  _laserPrefab: {fileID: -2817555979983623699, guid: 69532b104c421d7419053b3d2279768f, type: 3}
