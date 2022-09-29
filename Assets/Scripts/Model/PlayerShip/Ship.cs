@@ -10,7 +10,7 @@ namespace Model.PlayerShip
     public class Ship : IShip
     {
         private bool _killed;
-        
+
         public ILaserCooldown LaserCooldown { get; set; }
         public IShipTeleport Teleport { get; set; }
         public IShipMovement Movement { get; set; }
@@ -30,14 +30,20 @@ namespace Model.PlayerShip
             Movement.Update(Rotation.Current, deltaTime);
             Teleport.Update();
         }
-        
-        public void CollideWith(IAsteroid asteroid) => TryKill();
 
-        public void CollideWith(IUfo ufo) => TryKill();
+        public void CollideWith(IAsteroid asteroid)
+        {
+            TryKill();
+        }
+
+        public void CollideWith(IUfo ufo)
+        {
+            TryKill();
+        }
 
         private void TryKill()
         {
-            if (_killed) 
+            if (_killed)
                 return;
             _killed = true;
             Killed?.Invoke();

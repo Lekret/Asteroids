@@ -8,9 +8,9 @@ namespace View
         [SerializeField] private PositionView _positionView;
         [SerializeField] private DestroyableView _destroyableView;
         [SerializeField] private HazardColliderView _hazardColliderView;
-        
+
         private IBullet _bullet;
-        
+
         public void Init(IBullet bullet)
         {
             _bullet = bullet;
@@ -24,7 +24,7 @@ namespace View
         {
             _bullet.Update(Time.deltaTime);
         }
-        
+
         private void FixedUpdate()
         {
             _bullet.FixedUpdate(Time.deltaTime);

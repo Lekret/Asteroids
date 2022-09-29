@@ -9,7 +9,7 @@ namespace View
         [SerializeField] private HazardColliderView _hazardColliderView;
 
         private ILaser _laser;
-        
+
         public void Init(ILaser laser)
         {
             _laser = laser;

@@ -15,9 +15,9 @@ namespace Factories.Impl
 
         public HazardSpawnerFactory(
             IAsteroidFactory asteroidFactory,
-            IUfoFactory ufoFactory, 
-            IRandomizer randomizer, 
-            ISpawnConfiguration spawnConfiguration, 
+            IUfoFactory ufoFactory,
+            IRandomizer randomizer,
+            ISpawnConfiguration spawnConfiguration,
             IScoreTracker scoreTracker)
         {
             _asteroidFactory = asteroidFactory;
@@ -30,10 +30,10 @@ namespace Factories.Impl
         public HazardSpawner Create()
         {
             return new HazardSpawner(
-                _asteroidFactory, 
-                _ufoFactory, 
+                _asteroidFactory,
+                _ufoFactory,
                 _randomizer,
-                _scoreTracker, 
+                _scoreTracker,
                 _spawnConfiguration.TimeUntilSpawnCurve);
         }
     }

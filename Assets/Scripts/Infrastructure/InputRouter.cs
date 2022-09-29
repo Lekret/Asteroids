@@ -30,19 +30,19 @@ namespace Infrastructure
         {
             _ship.PrimaryWeapon.Use();
         }
-        
+
         private void UseSecondaryWeapon(InputAction.CallbackContext obj)
         {
             _ship.SecondaryWeapon.Use();
         }
 
         private void SetShipForwardInput(InputAction.CallbackContext ctx)
-        { 
+        {
             _ship.Movement.SetForwardInput(ctx.ReadValue<float>());
         }
-        
+
         private void SetShipRotationInput(InputAction.CallbackContext ctx)
-        { 
+        {
             _ship.Rotation.SetRotationInput(ctx.ReadValue<float>());
         }
     }

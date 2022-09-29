@@ -18,7 +18,7 @@ namespace Ui
             _sceneLoader = sceneLoader;
             _score.text = $"Score: {scoreTracker.Score}";
         }
-        
+
         private void Awake()
         {
             _button.onClick.AddListener(Restart);

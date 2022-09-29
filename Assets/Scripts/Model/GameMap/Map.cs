@@ -15,7 +15,7 @@ namespace Model.GameMap
         }
 
         public Bounds Bounds => _bounds;
-        
+
         public Vector2 RandomInnerPoint()
         {
             var point = _bounds.center;
@@ -24,7 +24,7 @@ namespace Model.GameMap
             point.y += _randomizer.Range(-extents.y, extents.y);
             return point;
         }
-        
+
         public Vector2 RandomOuterPoint()
         {
             var sign = _randomizer.Boolean() ? 1 : -1;

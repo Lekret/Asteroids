@@ -7,7 +7,7 @@ namespace View
     {
         [SerializeField] private PositionView _positionView;
         [SerializeField] private DestroyableView _destroyableView;
-        
+
         private IAsteroid _asteroid;
         public IAsteroid Asteroid => _asteroid;
 
@@ -23,7 +23,7 @@ namespace View
         {
             _asteroid.Update(Time.deltaTime);
         }
-        
+
         private void FixedUpdate()
         {
             _asteroid.FixedUpdate(Time.deltaTime);

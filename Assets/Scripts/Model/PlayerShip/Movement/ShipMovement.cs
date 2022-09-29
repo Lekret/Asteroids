@@ -21,7 +21,7 @@ namespace Model.PlayerShip.Movement
 
         public event Action<Vector2> PositionChanged;
         public event Action<Vector2> VelocityChanged;
-        public Vector2 Velocity => _velocity;
+
         public Vector2 Position
         {
             get => _position;

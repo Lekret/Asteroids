@@ -18,7 +18,7 @@ namespace Model.PlayerShip
         {
             if (_destroyed)
                 return;
-            
+
             _lifetime -= deltaTime;
             if (_lifetime <= 0)
             {

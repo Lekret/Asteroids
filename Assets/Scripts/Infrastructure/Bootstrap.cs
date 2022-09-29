@@ -20,7 +20,7 @@ namespace Infrastructure
         private IHazardSpawner _hazardSpawner;
 
         private void Start()
-        { 
+        {
             var randomizer = new Randomizer();
             var scoreTracker = new ScoreTracker();
             var mapBounds = CalculateMapBounds();
@@ -32,8 +32,8 @@ namespace Infrastructure
             var ufoFactory = new UfoFactory(_hazardConfiguration, ship.Movement, map);
             var hazardSpawnerFactory = new HazardSpawnerFactory(
                 asteroidFactory,
-                ufoFactory, 
-                randomizer, 
+                ufoFactory,
+                randomizer,
                 _hazardConfiguration,
                 scoreTracker);
             _hazardSpawner = hazardSpawnerFactory.Create();

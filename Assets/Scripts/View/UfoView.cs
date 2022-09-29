@@ -7,7 +7,7 @@ namespace View
     {
         [SerializeField] private PositionView _positionView;
         [SerializeField] private DestroyableView _destroyableView;
-        
+
         private IUfo _ufo;
         public IUfo Ufo => _ufo;
 
@@ -17,7 +17,7 @@ namespace View
             _positionView.Init(ufo);
             _destroyableView.Init(ufo);
         }
-        
+
         private void FixedUpdate()
         {
             _ufo.FixedUpdate(Time.deltaTime);

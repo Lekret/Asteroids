@@ -15,8 +15,8 @@ namespace Model.Hazards
         public Asteroid(
             IAsteroidShatter asteroidShatter,
             Vector2 position,
-            Vector2 direction, 
-            float speed, 
+            Vector2 direction,
+            float speed,
             float lifetime)
         {
             _asteroidShatter = asteroidShatter;
@@ -27,6 +27,7 @@ namespace Model.Hazards
 
         public Vector2 Position => _position;
         public event Action<Vector2> PositionChanged;
+
         public event Action Destroyed
         {
             add => _lifetime.Destroyed += value;
@@ -37,7 +38,7 @@ namespace Model.Hazards
         {
             _lifetime.Update(deltaTime);
         }
-        
+
         public void FixedUpdate(float deltaTime)
         {
             _position += _direction * deltaTime;

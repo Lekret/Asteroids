@@ -34,12 +34,14 @@ namespace Model.PlayerShip.Teleport
                     shipPosition[i] = max[i];
                     return shipPosition;
                 }
+
                 if (shipPosition[i] > max[i])
                 {
                     shipPosition[i] = min[i];
                     return shipPosition;
                 }
             }
+
             return null;
         }
     }

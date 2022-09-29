@@ -20,7 +20,7 @@ namespace Model.PlayerShip.Weapon
         public event Action AmmoChanged;
         public int MaxAmmo => _maxAmmo;
         public int Ammo => _ammo;
-        
+
         public void AddAmmo()
         {
             _ammo = Mathf.Min(_ammo + 1, _maxAmmo);

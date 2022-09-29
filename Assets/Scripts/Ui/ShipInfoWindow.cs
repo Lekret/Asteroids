@@ -13,7 +13,7 @@ namespace Ui
         [SerializeField] private TextMeshProUGUI _laserCooldown;
 
         private IShip _ship;
-        
+
         public void Init(IShip ship)
         {
             _ship = ship;
@@ -39,18 +39,18 @@ namespace Ui
         {
             _shipPosition.text = $"Position: X:{position.x:F2} Y:{position.y:F2}";
         }
-        
+
         private void SetRotationAngle(Quaternion rotation)
         {
             _shipRotation.text = $"Rotation: {(int) rotation.z}";
         }
-        
+
         private void SetInstantaneousVelocity(Vector2 velocity)
         {
             var instVel = velocity * Time.deltaTime;
             _instantaneousVelocity.text = $"Velocity: X:{instVel.x:F2} Y:{instVel.y:F2}";
         }
-        
+
         private void SetLaserAmmo()
         {
             _laserAmmo.text = $"Laser ammo: {_ship.SecondaryWeapon.Ammo}";

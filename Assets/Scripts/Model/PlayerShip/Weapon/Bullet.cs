@@ -22,6 +22,7 @@ namespace Model.PlayerShip.Weapon
         public Quaternion Rotation => _rotation;
         public Vector2 Position => _position;
         public event Action<Vector2> PositionChanged;
+
         public event Action Destroyed
         {
             add => _lifetime.Destroyed += value;

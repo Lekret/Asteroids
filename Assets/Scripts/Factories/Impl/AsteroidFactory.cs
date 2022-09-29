@@ -17,7 +17,7 @@ namespace Factories.Impl
 
         public AsteroidFactory(
             IAsteroidConfiguration configuration,
-            IMap map, 
+            IMap map,
             IRandomizer randomizer)
         {
             _configuration = configuration;
@@ -34,8 +34,8 @@ namespace Factories.Impl
             var direction = (_map.RandomInnerPoint() - position).normalized;
             var asteroid = new Asteroid(
                 _bigAsteroidShatter,
-                position, 
-                direction, 
+                position,
+                direction,
                 _configuration.BigAsteroidSpeed,
                 _configuration.AsteroidLifetime);
             view.Init(asteroid);
@@ -47,8 +47,8 @@ namespace Factories.Impl
             var view = Object.Instantiate(_configuration.SmallAsteroidPrefab);
             var asteroid = new Asteroid(
                 _smallAsteroidShatter,
-                position, 
-                _randomizer.Direction(), 
+                position,
+                _randomizer.Direction(),
                 _configuration.SmallAsteroidSpeed,
                 _configuration.AsteroidLifetime);
             view.Init(asteroid);

@@ -21,7 +21,7 @@ namespace Factories.Impl
             var view = Object.Instantiate(_shipConfiguration.LaserPrefab);
             var laser = new Laser(
                 _ship.Movement.Position,
-                _ship.Rotation.Current, 
+                _ship.Rotation.Current,
                 _shipConfiguration.LaserLifetime);
             view.Init(laser);
             return null;

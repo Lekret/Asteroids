@@ -7,7 +7,7 @@ namespace View
     {
         [SerializeField] private PositionView _positionView;
         [SerializeField] private HazardColliderView _hazardColliderView;
-        
+
         private IShip _ship;
 
         public void Init(IShip ship)
@@ -27,7 +27,7 @@ namespace View
         {
             _ship.Update(Time.deltaTime);
         }
-        
+
         private void FixedUpdate()
         {
             _ship.FixedUpdate(Time.deltaTime);

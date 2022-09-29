@@ -21,9 +21,9 @@ namespace Factories.Impl
             var view = Object.Instantiate(_shipConfiguration.BulletPrefab);
             var position = _ship.Movement.Position;
             var bullet = new Bullet(
-                position, 
-                _ship.Rotation.Current, 
-                _shipConfiguration.BulletSpeed, 
+                position,
+                _ship.Rotation.Current,
+                _shipConfiguration.BulletSpeed,
                 _shipConfiguration.BulletLifetime);
             view.Init(bullet);
             return bullet;

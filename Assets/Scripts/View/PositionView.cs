@@ -6,7 +6,7 @@ namespace View
     public class PositionView : MonoBehaviour
     {
         private IPositionable _positionable;
-        
+
         public void Init(IPositionable positionable)
         {
             _positionable = positionable;

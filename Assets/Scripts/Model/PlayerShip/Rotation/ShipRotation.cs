@@ -24,7 +24,7 @@ namespace Model.PlayerShip.Rotation
             _current = Quaternion.AngleAxis(_eulerZ, Vector3.forward);
             Changed?.Invoke(_current);
         }
-        
+
         public void SetRotationInput(float rotationInput)
         {
             _rotationInput = rotationInput;

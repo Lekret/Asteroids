@@ -11,6 +11,7 @@
                 Score++;
                 hazard.Destroyed -= OnHazardDestroyed;
             }
+
             hazard.Destroyed += OnHazardDestroyed;
         }
     }

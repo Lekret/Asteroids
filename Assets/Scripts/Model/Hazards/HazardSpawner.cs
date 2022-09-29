@@ -14,7 +14,7 @@ namespace Model.Hazards
         private readonly AnimationCurve _timeUntilSpawnCurve;
         private float _gameTime;
         private float _timeUntilSpawn;
-        
+
         public HazardSpawner(
             IAsteroidFactory asteroidFactory,
             IUfoFactory ufoFactory,
@@ -47,6 +47,7 @@ namespace Model.Hazards
             {
                 return _asteroidFactory.CreateBig();
             }
+
             return _ufoFactory.Create();
         }
     }

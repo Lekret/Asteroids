@@ -7,8 +7,8 @@ namespace Services.Randomizer
         int Range(int min, int max);
         float Range(float min, float max);
     }
-    
-    public static class RandomizerExtensions 
+
+    public static class RandomizerExtensions
     {
         public static bool Boolean(this IRandomizer randomizer)
         {

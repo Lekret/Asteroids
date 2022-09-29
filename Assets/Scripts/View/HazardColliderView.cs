@@ -8,7 +8,7 @@ namespace View
     public class HazardColliderView : MonoBehaviour
     {
         private IHazardCollider _hazardCollider;
-        
+
         public void Init(IHazardCollider hazardCollider)
         {
             _hazardCollider = hazardCollider;
@@ -19,7 +19,7 @@ namespace View
             if (col.TryGetComponent(out AsteroidView asteroidView))
             {
                 _hazardCollider.CollideWith(asteroidView.Asteroid);
-            } 
+            }
             else if (col.TryGetComponent(out UfoView ufoView))
             {
                 _hazardCollider.CollideWith(ufoView.Ufo);

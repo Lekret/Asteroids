@@ -17,12 +17,13 @@ namespace Model.PlayerShip.Weapon
 
         public Quaternion Rotation { get; }
         public Vector2 Position { get; }
+
         public event Action Destroyed
         {
             add => _lifetime.Destroyed += value;
             remove => _lifetime.Destroyed -= value;
         }
-        
+
         public void Update(float deltaTime)
         {
             _lifetime.Update(deltaTime);
