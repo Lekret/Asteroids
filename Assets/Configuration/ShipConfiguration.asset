@@ -17,7 +17,7 @@ MonoBehaviour:
   _maxSpeed: 5
   _rotationSpeed: 240
   _bulletSpeed: 12
-  _bulletLifetime: 5
+  _bulletLifetime: 3
   _laserCooldown: 3
   _laserLifetime: 1
   _laserMaxCount: 3
