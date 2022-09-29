@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7640777231031094822}
   - component: {fileID: 5581075589817088503}
   - component: {fileID: 692369685731588761}
+  - component: {fileID: 7631709987302673214}
   m_Layer: 0
   m_Name: BigAsteroid
   m_TagString: Untagged
@@ -73,6 +74,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91fd02f2fca4f6fb232eab0bd5beeb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &7631709987302673214
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147119422678687077}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.85
 --- !u!1 &6345342791865862985
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6345342791865862985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.052, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -151,7 +168,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 2.5, y: 2.5}
+  m_Size: {x: 2.3, y: 2.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
