@@ -17,7 +17,6 @@ namespace Model.Hazards.Shatter
             {
                 _asteroidFactory.CreateSmall(asteroid.Position);
             }
-
             asteroid.Destroy();
         }
     }

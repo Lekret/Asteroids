@@ -8,6 +8,7 @@ namespace Model.Hazards
     {
         private readonly IShipMovement _shipMovement;
         private readonly float _speed;
+        private bool _isDestroyed;
         private Vector2 _position;
 
         public Ufo(IShipMovement shipMovement, Vector3 position, float speed)
@@ -29,6 +30,9 @@ namespace Model.Hazards
 
         public void Destroy()
         {
+            if (_isDestroyed)
+                return;
+            _isDestroyed = true;
             Destroyed?.Invoke();
         }
     }
