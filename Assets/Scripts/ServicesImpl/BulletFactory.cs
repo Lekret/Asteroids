@@ -10,10 +10,12 @@ namespace ServicesImpl
     {
         private readonly BulletView _prefab;
         private readonly IShip _ship;
+        private readonly float _bulletSpeed;
 
-        public BulletFactory(BulletView prefab, IShip ship)
+        public BulletFactory(BulletView prefab, float bulletSpeed, IShip ship)
         {
             _prefab = prefab;
+            _bulletSpeed = bulletSpeed;
             _ship = ship;
         }
 
@@ -21,7 +23,7 @@ namespace ServicesImpl
         {
             var view = Object.Instantiate(_prefab);
             var position = _ship.Movement.Position;
-            var bullet = new Bullet(position, _ship.Rotation.Current);
+            var bullet = new Bullet(position, _ship.Rotation.Current, _bulletSpeed);
             view.Init(bullet);
             return bullet;
         }

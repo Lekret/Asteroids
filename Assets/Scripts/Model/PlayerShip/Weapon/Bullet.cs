@@ -9,11 +9,11 @@ namespace Model.PlayerShip.Weapon
         private readonly Quaternion _rotation;
         private Vector2 _position;
 
-        public Bullet(Vector2 position, Quaternion rotation)
+        public Bullet(Vector2 position, Quaternion rotation, float speed)
         {
             _position = position;
             _rotation = rotation;
-            _direction = rotation * Vector3.up;
+            _direction = rotation * Vector3.up * speed;
         }
 
         public Quaternion Rotation => _rotation;
