@@ -10,9 +10,10 @@ namespace Model.Obstacles
         private readonly float _speed;
         private Vector2 _position;
 
-        public Ufo(IShipMovement shipMovement, float speed)
+        public Ufo(IShipMovement shipMovement, Vector3 position, float speed)
         {
             _shipMovement = shipMovement;
+            _position = position;
             _speed = speed;
         }
 
