@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace View
 {
+    [RequireComponent(typeof(Collider2D))]
+    [RequireComponent(typeof(Rigidbody2D))]
     public class ShipView : MonoBehaviour
     {
         [SerializeField] private PositionView _positionView;
@@ -31,9 +33,9 @@ namespace View
             transform.rotation = rotation;
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter2D(Collider2D col)
         {
-            if (other.TryGetComponent(out ShipKillerView _))
+            if (col.TryGetComponent(out ShipKillerView _))
             {
                 _ship.Collider.OnCollision();
             }
