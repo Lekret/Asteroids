@@ -10,7 +10,6 @@ namespace Model.Hazards
         private readonly IAsteroidShatter _asteroidShatter;
         private readonly Vector2 _direction;
         private readonly Lifetime _lifetime;
-        private readonly float _speed;
         private Vector2 _position;
 
         public Asteroid(
@@ -22,8 +21,7 @@ namespace Model.Hazards
         {
             _asteroidShatter = asteroidShatter;
             _position = position;
-            _direction = direction;
-            _speed = speed;
+            _direction = direction * speed;
             _lifetime = new Lifetime(lifetime);
         }
 
@@ -34,12 +32,16 @@ namespace Model.Hazards
             add => _lifetime.Destroyed += value;
             remove => _lifetime.Destroyed -= value;
         }
-        
+
         public void Update(float deltaTime)
         {
-            _position += _direction * _speed * deltaTime;
-            PositionChanged?.Invoke(_position);
             _lifetime.Update(deltaTime);
+        }
+        
+        public void FixedUpdate(float deltaTime)
+        {
+            _position += _direction * deltaTime;
+            PositionChanged?.Invoke(_position);
         }
 
         public void Destroy()

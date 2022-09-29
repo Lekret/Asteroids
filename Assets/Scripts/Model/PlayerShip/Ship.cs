@@ -15,7 +15,7 @@ namespace Model.PlayerShip
         public IShipWeapon SecondaryWeapon { get; set; }
         public event Action Destroyed;
 
-        public void Update(float deltaTime)
+        public void FixedUpdate(float deltaTime)
         {
             Rotation.Update(deltaTime);
             Movement.Update(Rotation.Current, deltaTime);

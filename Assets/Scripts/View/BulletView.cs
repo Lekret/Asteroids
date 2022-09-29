@@ -19,10 +19,15 @@ namespace View
             _destroyableView.Init(bullet);
             transform.rotation = _bullet.Rotation;
         }
-        
+
         private void Update()
         {
             _bullet.Update(Time.deltaTime);
+        }
+        
+        private void FixedUpdate()
+        {
+            _bullet.FixedUpdate(Time.deltaTime);
         }
         
         private void OnTriggerEnter2D(Collider2D col)

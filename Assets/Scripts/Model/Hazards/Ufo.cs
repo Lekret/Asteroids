@@ -20,8 +20,8 @@ namespace Model.Hazards
         public Vector2 Position => _position;
         public event Action<Vector2> PositionChanged;
         public event Action Destroyed;
-        
-        public void Update(float deltaTime)
+
+        public void FixedUpdate(float deltaTime)
         {
             _position = Vector2.MoveTowards(_position, _shipMovement.Position, _speed * deltaTime);
             PositionChanged?.Invoke(_position);

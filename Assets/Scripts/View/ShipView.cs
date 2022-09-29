@@ -25,9 +25,9 @@ namespace View
             _ship.Rotation.Changed -= SetRotation;
         }
         
-        private void Update()
+        private void FixedUpdate()
         {
-            _ship.Update(Time.deltaTime);
+            _ship.FixedUpdate(Time.deltaTime);
         }
 
         private void SetRotation(Quaternion rotation)

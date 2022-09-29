@@ -18,9 +18,9 @@ namespace View
             _destroyableView.Init(ufo);
         }
         
-        private void Update()
+        private void FixedUpdate()
         {
-            _ufo.Update(Time.deltaTime);
+            _ufo.FixedUpdate(Time.deltaTime);
         }
     }
 }

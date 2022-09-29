@@ -27,12 +27,16 @@ namespace Model.PlayerShip.Weapon
             add => _lifetime.Destroyed += value;
             remove => _lifetime.Destroyed -= value;
         }
-        
+
         public void Update(float deltaTime)
+        {
+            _lifetime.Update(deltaTime);
+        }
+
+        public void FixedUpdate(float deltaTime)
         {
             _position += _direction * deltaTime;
             PositionChanged?.Invoke(_position);
-            _lifetime.Update(deltaTime);
         }
 
         public void CollideWith(IAsteroid asteroid)

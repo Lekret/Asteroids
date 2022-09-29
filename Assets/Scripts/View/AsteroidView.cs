@@ -23,5 +23,10 @@ namespace View
         {
             _asteroid.Update(Time.deltaTime);
         }
+        
+        private void FixedUpdate()
+        {
+            _asteroid.FixedUpdate(Time.deltaTime);
+        }
     }
 }
