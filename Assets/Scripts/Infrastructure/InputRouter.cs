@@ -29,8 +29,8 @@ namespace Infrastructure
         private void OnShipDestroyed()
         {
             _ship.Destroyed -= OnShipDestroyed;
+            _controls.Dispose();
             _ship = null;
-            _controls.Disable();
         }
 
         private void UsePrimaryWeapon(InputAction.CallbackContext obj)
