@@ -16,7 +16,7 @@ namespace View
         {
             _ship = ship;
             _positionView.Init(ship.Movement);
-            _destroyableView.Init(ship.Hull);
+            _destroyableView.Init(ship);
             _ship.Rotation.Changed += SetRotation;
         }
 
@@ -39,7 +39,7 @@ namespace View
         {
             if (col.TryGetComponent(out ShipKillerView _))
             {
-                _ship.Hull.Destroy();
+                _ship.Destroy();
             }
         }
     }

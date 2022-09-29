@@ -1,7 +1,6 @@
 ﻿using Configuration;
 using Model.GameMap;
 using Model.PlayerShip;
-using Model.PlayerShip.Collision;
 using Model.PlayerShip.Movement;
 using Model.PlayerShip.Rotation;
 using Model.PlayerShip.Teleport;
@@ -28,7 +27,7 @@ namespace ServicesImpl
                 _configuration.Acceleration,
                 _configuration.MaxSpeed,
                 _configuration.InertiaDrop);
-            var ship = new ShipFacade();
+            var ship = new Ship();
             var rotation = new ShipRotation(_configuration.RotationSpeed);
             var teleport = new ShipTeleport(_map, movement);
             var bulletFactory = new BulletFactory(_configuration, ship);
@@ -40,7 +39,6 @@ namespace ServicesImpl
             ship.Teleport = teleport;
             ship.PrimaryWeapon = primaryWeapon;
             ship.SecondaryWeapon = secondaryWeapon;
-            ship.Hull = new ShipHull();
             var view = Object.Instantiate(_configuration.ShipPrefab);
             view.Init(ship);
             return ship;

@@ -6,7 +6,7 @@ namespace Infrastructure
     public class InputRouter
     {
         private readonly PlayerControls _controls = new PlayerControls();
-        private readonly IShip _ship;
+        private IShip _ship;
 
         public InputRouter(IShip ship)
         {
@@ -15,7 +15,7 @@ namespace Infrastructure
 
         public void Run()
         {
-            _ship.Hull.Destroyed += OnShipDestroyed;
+            _ship.Destroyed += OnShipDestroyed;
             _controls.Enable();
             var shipMap = _controls.ShipMap;
             shipMap.Forward.performed += SetShipForwardInput;
@@ -28,7 +28,8 @@ namespace Infrastructure
 
         private void OnShipDestroyed()
         {
-            _ship.Hull.Destroyed -= OnShipDestroyed;
+            _ship.Destroyed -= OnShipDestroyed;
+            _ship = null;
             _controls.Disable();
         }
 
