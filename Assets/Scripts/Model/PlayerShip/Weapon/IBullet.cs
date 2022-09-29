@@ -1,13 +1,10 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Model.PlayerShip.Weapon
 {
-    public interface IBullet
+    public interface IBullet : IPositionable
     {
         Quaternion Rotation { get; }
-        Vector2 Position { get; }
-        event Action<Vector2> PositionChanged;
         void Update(float deltaTime);
     }
 }

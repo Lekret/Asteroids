@@ -1,12 +1,7 @@
-﻿using System;
-using UnityEngine;
-
-namespace Model.Obstacles
+﻿namespace Model.Obstacles
 {
-    public interface IUfo
+    public interface IUfo : IPositionable
     {
-        Vector2 Position { get; }
-        event Action<Vector2> PositionChanged;
         void Update(float deltaTime);
     }
 }

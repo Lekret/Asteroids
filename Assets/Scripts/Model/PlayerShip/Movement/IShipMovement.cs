@@ -1,12 +1,10 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Model.PlayerShip.Movement
 {
-    public interface IShipMovement
+    public interface IShipMovement : IPositionable
     {
-        event Action<Vector2> PositionChanged;
-        Vector2 Position { get; set; }
+        new Vector2 Position { get; set; }
         void SetForwardInput(float forwardInput);
         void Update(Quaternion rotation, float deltaTime);
     }

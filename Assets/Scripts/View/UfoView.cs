@@ -5,28 +5,19 @@ namespace View
 {
     public class UfoView : MonoBehaviour
     {
+        [SerializeField] private PositionView _positionView;
+        
         private IUfo _ufo;
         
         public void Init(IUfo ufo)
         {
             _ufo = ufo;
-            _ufo.PositionChanged += SetPosition;
-            SetPosition(_ufo.Position);
-        }
-
-        private void OnDestroy()
-        {
-            _ufo.PositionChanged -= SetPosition;
+            _positionView.Init(ufo);
         }
         
         private void Update()
         {
             _ufo.Update(Time.deltaTime);
-        }
-        
-        private void SetPosition(Vector2 position)
-        {
-            transform.position = position;
         }
     }
 }

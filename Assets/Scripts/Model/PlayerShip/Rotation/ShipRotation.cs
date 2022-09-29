@@ -6,6 +6,7 @@ namespace Model.PlayerShip.Rotation
     public class ShipRotation : IShipRotation
     {
         private readonly float _rotationSpeed;
+        private float _eulerZ;
         private Quaternion _current;
         private float _rotationInput;
 
@@ -19,8 +20,8 @@ namespace Model.PlayerShip.Rotation
 
         public void Update(float deltaTime)
         {
-            var eulerZ = _rotationInput * _rotationSpeed * deltaTime;
-            _current *= Quaternion.AngleAxis(eulerZ, Vector3.forward);
+            _eulerZ += _rotationInput * _rotationSpeed * deltaTime;
+            _current = Quaternion.AngleAxis(_eulerZ, Vector3.forward);
             Changed?.Invoke(_current);
         }
         
