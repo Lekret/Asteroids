@@ -2,7 +2,7 @@
 using Model.PlayerShip.Movement;
 using UnityEngine;
 
-namespace Model.Obstacles
+namespace Model.Hazards
 {
     public class Ufo : IUfo
     {

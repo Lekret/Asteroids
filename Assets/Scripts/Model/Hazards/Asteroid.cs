@@ -2,7 +2,7 @@
 using Model.PlayerShip;
 using UnityEngine;
 
-namespace Model.Obstacles
+namespace Model.Hazards
 {
     public class Asteroid : IAsteroid
     {

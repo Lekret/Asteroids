@@ -1,7 +1,7 @@
 ﻿using System;
 using Configuration;
 using Model.GameMap;
-using Model.Obstacles;
+using Model.Hazards;
 using Services;
 using View;
 using Object = UnityEngine.Object;

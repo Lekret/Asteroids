@@ -1,9 +1,9 @@
 ﻿using Services;
 using UnityEngine;
 
-namespace Model.Obstacles
+namespace Model.Hazards
 {
-    public class ObstacleSpawner : IObstacleSpawner
+    public class HazardSpawner : IHazardSpawner
     {
         private readonly IAsteroidFactory _asteroidFactory;
         private readonly IUfoFactory _ufoFactory;
@@ -12,7 +12,7 @@ namespace Model.Obstacles
         private float _gameTime;
         private float _timeUntilSpawn;
         
-        public ObstacleSpawner(
+        public HazardSpawner(
             IAsteroidFactory asteroidFactory, 
             IUfoFactory ufoFactory,
             IRandomizer randomizer,
@@ -31,11 +31,11 @@ namespace Model.Obstacles
             if (_timeUntilSpawn <= 0)
             {
                 _timeUntilSpawn = _timeUntilSpawnCurve.Evaluate(_gameTime);
-                SpawnObstacle();
+                SpawnHazard();
             }
         }
 
-        private void SpawnObstacle()
+        private void SpawnHazard()
         {
             if (_randomizer.Boolean())
             {

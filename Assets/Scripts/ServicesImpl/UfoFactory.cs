@@ -1,6 +1,6 @@
 ﻿using Configuration;
 using Model.GameMap;
-using Model.Obstacles;
+using Model.Hazards;
 using Model.PlayerShip.Movement;
 using Services;
 using UnityEngine;

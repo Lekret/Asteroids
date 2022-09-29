@@ -23,14 +23,14 @@ namespace Infrastructure
             var ship = shipFactory.Create();
             var asteroidFactory = new AsteroidFactory(_gameConfiguration, map);
             var ufoFactory = new UfoFactory(_gameConfiguration, ship.Movement, map);
-            var obstacleSpawnerFactory = new ObstacleSpawnerFactory(
+            var hazardSpawnerFactory = new HazardSpawnerFactory(
                 asteroidFactory,
                 ufoFactory, 
                 randomizer, 
                 _gameConfiguration);
-            var obstacleSpawner = obstacleSpawnerFactory.Create();
+            var hazardSpawner = hazardSpawnerFactory.Create();
             new InputRouter(ship).Run();
-            _gameLoop = new GameLoop(obstacleSpawner);
+            _gameLoop = new GameLoop(hazardSpawner);
         }
         
         private void Update()

@@ -1,17 +1,17 @@
 ﻿using Configuration;
-using Model.Obstacles;
+using Model.Hazards;
 using Services;
 
 namespace ServicesImpl
 {
-    public class ObstacleSpawnerFactory
+    public class HazardSpawnerFactory
     {
         private readonly IAsteroidFactory _asteroidFactory;
         private readonly IUfoFactory _ufoFactory;
         private readonly IRandomizer _randomizer;
         private readonly ISpawnConfiguration _spawnConfiguration;
 
-        public ObstacleSpawnerFactory(
+        public HazardSpawnerFactory(
             IAsteroidFactory asteroidFactory,
             IUfoFactory ufoFactory, 
             IRandomizer randomizer, 
@@ -23,9 +23,9 @@ namespace ServicesImpl
             _spawnConfiguration = spawnConfiguration;
         }
 
-        public ObstacleSpawner Create()
+        public HazardSpawner Create()
         {
-            return new ObstacleSpawner(
+            return new HazardSpawner(
                 _asteroidFactory, 
                 _ufoFactory, 
                 _randomizer, 

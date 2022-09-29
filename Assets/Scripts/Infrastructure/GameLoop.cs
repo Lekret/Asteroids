@@ -1,19 +1,19 @@
-﻿using Model.Obstacles;
+﻿using Model.Hazards;
 
 namespace Infrastructure
 {
     public class GameLoop
     {
-        private readonly IObstacleSpawner _obstacleSpawner;
+        private readonly IHazardSpawner _hazardSpawner;
 
-        public GameLoop(IObstacleSpawner obstacleSpawner)
+        public GameLoop(IHazardSpawner hazardSpawner)
         {
-            _obstacleSpawner = obstacleSpawner;
+            _hazardSpawner = hazardSpawner;
         }
 
         public void Update(float deltaTime)
         {
-            _obstacleSpawner.Update(deltaTime);
+            _hazardSpawner.Update(deltaTime);
         }
     }
 }

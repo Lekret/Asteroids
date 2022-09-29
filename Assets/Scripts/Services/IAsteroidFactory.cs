@@ -1,4 +1,4 @@
-﻿using Model.Obstacles;
+﻿using Model.Hazards;
 
 namespace Services
 {
