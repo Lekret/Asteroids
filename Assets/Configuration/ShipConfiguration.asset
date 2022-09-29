@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d7ed0f00e1541b286cd65e935e1e9b3, type: 3}
   m_Name: ShipConfiguration
   m_EditorClassIdentifier: 
-  _acceleration: 1
+  _acceleration: 20
+  _inertiaDrop: 1
   _maxSpeed: 5
-  _rotationSpeed: 80
+  _rotationSpeed: 120
   _prefab: {fileID: 350583983711806268, guid: 72be568e317d2cd47a119904f13140d2, type: 3}
