@@ -6,6 +6,7 @@ namespace View
     public class BulletView : MonoBehaviour
     {
         [SerializeField] private PositionView _positionView;
+        [SerializeField] private DestroyableView _destroyableView;
         
         private IBullet _bullet;
         
@@ -13,6 +14,7 @@ namespace View
         {
             _bullet = bullet;
             _positionView.Init(bullet);
+            _destroyableView.Init(bullet);
             transform.rotation = _bullet.Rotation;
         }
         

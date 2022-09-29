@@ -13,8 +13,7 @@ namespace Model.PlayerShip.Weapon
 
         public void Use()
         {
-            var bullet = _bulletFactory.Create();
-            
+            _bulletFactory.Create();
         }
     }
 }

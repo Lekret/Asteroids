@@ -6,6 +6,7 @@ namespace View
     public class AsteroidView : MonoBehaviour
     {
         [SerializeField] private PositionView _positionView;
+        [SerializeField] private DestroyableView _destroyableView;
         
         private IAsteroid _asteroid;
         
@@ -13,6 +14,7 @@ namespace View
         {
             _asteroid = asteroid;
             _positionView.Init(asteroid);
+            _destroyableView.Init(asteroid);
             transform.rotation = Random.rotation;
         }
 

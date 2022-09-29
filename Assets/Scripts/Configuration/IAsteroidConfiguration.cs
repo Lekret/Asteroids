@@ -7,5 +7,6 @@ namespace Configuration
         float BigAsteroidSpeed { get; }
         float SmallAsteroidSpeed { get; }
         AsteroidView AsteroidPrefab { get; }
+        float AsteroidLifetime { get; }
     }
 }

@@ -6,6 +6,7 @@ namespace View
     public class UfoView : MonoBehaviour
     {
         [SerializeField] private PositionView _positionView;
+        [SerializeField] private DestroyableView _destroyableView;
         
         private IUfo _ufo;
         
@@ -13,6 +14,7 @@ namespace View
         {
             _ufo = ufo;
             _positionView.Init(ufo);
+            _destroyableView.Init(ufo);
         }
         
         private void Update()

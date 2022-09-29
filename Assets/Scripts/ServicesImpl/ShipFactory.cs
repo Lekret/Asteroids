@@ -30,10 +30,7 @@ namespace ServicesImpl
             var ship = new ShipFacade();
             var rotation = new ShipRotation(_configuration.RotationSpeed);
             var teleport = new ShipTeleport(_map, movement);
-            var bulletFactory = new BulletFactory(
-                _configuration.BulletPrefab, 
-                _configuration.BulletSpeed, 
-                ship);
+            var bulletFactory = new BulletFactory(_configuration, ship);
             var primaryWeapon = new BulletWeapon(bulletFactory);
             var laserFactory = new LaserFactory(_configuration.LaserPrefab);
             var secondaryWeapon = new LaserWeapon(laserFactory);
