@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c72ad7e091324ed9acc1529bb3c5f185, type: 3}
   m_Name: GameConfiguration
   m_EditorClassIdentifier: 
-  _ufoSpeed: 2
-  _bigAsteroidSpeed: 5
-  _smallAsteroidSpeed: 8
-  _asteroidLifetime: 15
+  _ufoSpeed: 1.5
+  _bigAsteroidSpeed: 10
+  _smallAsteroidSpeed: 15
+  _asteroidLifetime: 10
   _asteroidPrefab: {fileID: 7640777231031094822, guid: 3385756fed74b404f94792dd19061a6d, type: 3}
   _ufoPrefab: {fileID: -8518494576562963084, guid: e11dcfab1d9173a49839a9bd910018ca, type: 3}
   _timeUntilSpawnCurve:
