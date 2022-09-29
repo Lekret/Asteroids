@@ -1,4 +1,4 @@
-﻿namespace Game
+﻿namespace Game.Asteroid
 {
     public class Asteroid
     {

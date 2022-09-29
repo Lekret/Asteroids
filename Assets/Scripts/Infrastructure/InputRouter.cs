@@ -1,23 +1,37 @@
-﻿using Game;
+﻿using Game.Ship;
+using UnityEngine.InputSystem;
 
 namespace Infrastructure
 {
     public class InputRouter
     {
         private readonly PlayerControls _controls = new PlayerControls();
-        private readonly Ship _ship;
+        private readonly ShipMovement _shipMovement;
+        private readonly ShipRotation _shipRotation;
 
-        public InputRouter(Ship ship)
+        public InputRouter(ShipMovement shipMovement, ShipRotation shipRotation)
         {
-            _ship = ship;
+            _shipMovement = shipMovement;
+            _shipRotation = shipRotation;
         }
 
-        public void Route()
+        public void PerformRouting()
         {
-            _controls.ShipMap.Movement.performed += context =>
-            {
-                
-            };
+            _controls.Enable();
+            _controls.ShipMap.Forward.performed += SetShipForwardInput;
+            _controls.ShipMap.Forward.canceled += SetShipForwardInput;
+            _controls.ShipMap.Rotation.performed += SetShipRotationInput;
+            _controls.ShipMap.Rotation.canceled += SetShipRotationInput;
+        }
+
+        private void SetShipForwardInput(InputAction.CallbackContext ctx)
+        { 
+            _shipMovement.SetForwardInput(ctx.ReadValue<float>());
+        }
+        
+        private void SetShipRotationInput(InputAction.CallbackContext ctx)
+        { 
+            _shipRotation.SetRotationInput(ctx.ReadValue<float>());
         }
     }
 }

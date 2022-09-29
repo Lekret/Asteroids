@@ -6,7 +6,7 @@
             "id": "49de3092-1437-4a5e-881e-7ce3622a3903",
             "actions": [
                 {
-                    "name": "Movement",
+                    "name": "Forward",
                     "type": "Button",
                     "id": "01f7ab1a-8426-47b8-9ac4-f0b4283ad323",
                     "expectedControlType": "Button",
@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Rotation",
+                    "type": "Button",
+                    "id": "c2d229de-f0f9-4906-b6d5-440eac64db5c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -32,40 +41,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "08d7dfe7-c29f-4593-b4ae-b244e3a8f07d",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "PC",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "57a2d63c-6930-47ce-84ed-9f64cf418319",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "PC",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1b90c6ee-6886-45fd-8805-b300d552a851",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "PC",
-                    "action": "Movement",
+                    "action": "Forward",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -79,6 +55,39 @@
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "bc00443d-8406-4a81-be0e-c674755ec3c9",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotation",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "7440bc20-e3f0-43b8-a6d6-0160f53779a7",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotation",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "a4a5231b-936b-4137-93e0-e9edd8bffb0c",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotation",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
