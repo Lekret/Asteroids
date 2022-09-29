@@ -1,4 +1,4 @@
-﻿using Services.Weapon;
+﻿using Services;
 
 namespace Model.PlayerShip.Weapon
 {

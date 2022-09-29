@@ -2,7 +2,7 @@
 using UnityEngine;
 using View;
 
-namespace Services.Asteroids
+namespace Services.Impl
 {
     public class AsteroidFactory : IAsteroidFactory
     {

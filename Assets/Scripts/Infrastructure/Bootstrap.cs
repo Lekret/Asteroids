@@ -1,6 +1,6 @@
 using Configuration;
 using Model.PlayerShip;
-using Services.PlayerShit;
+using Services.Impl;
 using UnityEngine;
 using Utils;
 
@@ -11,14 +11,13 @@ namespace Infrastructure
         [SerializeField] private Camera _camera;
         [SerializeField] private ShipConfiguration _shipConfiguration;
         
-        private Ship _ship;
+        private IShip _ship;
         
         private void Start()
         {
             var mapBounds = CalculateMapBounds();
             _ship = new ShipFactory(_shipConfiguration, mapBounds).Create();
             new InputRouter(_ship).PerformRouting();
-            new ShipViewFactory(_shipConfiguration.ShipPrefab).Create(_ship.Movement, _ship.Rotation);
         }
 
         private Bounds CalculateMapBounds()

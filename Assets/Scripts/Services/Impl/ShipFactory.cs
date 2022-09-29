@@ -4,10 +4,9 @@ using Model.PlayerShip.Movement;
 using Model.PlayerShip.Rotation;
 using Model.PlayerShip.Teleport;
 using Model.PlayerShip.Weapon;
-using Services.Weapon;
 using UnityEngine;
 
-namespace Services.PlayerShit
+namespace Services.Impl
 {
     public class ShipFactory : IShipFactory
     {
@@ -20,7 +19,7 @@ namespace Services.PlayerShit
             _mapBounds = mapBounds;
         }
 
-        public Ship Create()
+        public IShip Create()
         {
             var shipMovement = new ShipMovement(
                 _configuration.Acceleration,
@@ -38,6 +37,8 @@ namespace Services.PlayerShit
                 shipTeleport, 
                 primaryWeapon,
                 secondaryWeapon);
+            var view = Object.Instantiate(_configuration.ShipPrefab);
+            view.Init(shipMovement, shipRotation);
             return ship;
         }
     }

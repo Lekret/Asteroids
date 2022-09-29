@@ -1,9 +1,9 @@
 ﻿using Model.PlayerShip;
 
-namespace Services.PlayerShit
+namespace Services
 {
     public interface IShipFactory
     {
-        Ship Create();
+        IShip Create();
     }
 }

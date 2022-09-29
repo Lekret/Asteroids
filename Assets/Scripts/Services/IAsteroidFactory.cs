@@ -1,6 +1,6 @@
 ﻿using Model.Asteroids;
 
-namespace Services.Asteroids
+namespace Services
 {
     public interface IAsteroidFactory
     {

@@ -2,7 +2,7 @@
 using UnityEngine;
 using View;
 
-namespace Services.Weapon
+namespace Services.Impl
 {
     public class LaserFactory : ILaserFactory
     {

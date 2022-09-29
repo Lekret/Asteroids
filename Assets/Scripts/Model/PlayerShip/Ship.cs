@@ -5,7 +5,7 @@ using Model.PlayerShip.Weapon;
 
 namespace Model.PlayerShip
 {
-    public class Ship
+    public class Ship : IShip
     {
         public Ship(
             IShipMovement movement, 

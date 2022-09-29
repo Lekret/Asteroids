@@ -1,4 +1,4 @@
-﻿using Services.Asteroids;
+﻿using Services;
 
 namespace Model.Asteroids
 {
