@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3308184383491130380}
   - component: {fileID: 350583983711806268}
-  - component: {fileID: 7013173704419570123}
   - component: {fileID: 6300003499254919748}
   - component: {fileID: 6263370885178397415}
   - component: {fileID: 1172130331617545312}
@@ -51,20 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _positionView: {fileID: 6300003499254919748}
-  _destroyableView: {fileID: 7013173704419570123}
+  _destroyableView: {fileID: 0}
   _hazardColliderView: {fileID: 6263370885178397415}
---- !u!114 &7013173704419570123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147119422678687077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e91fd02f2fca4f6fb232eab0bd5beeb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6300003499254919748
 MonoBehaviour:
   m_ObjectHideFlags: 0

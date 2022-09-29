@@ -18,9 +18,9 @@ namespace Infrastructure
         [SerializeField] private UiConfiguration _uiConfiguration;
 
         private IHazardSpawner _hazardSpawner;
-        
+
         private void Start()
-        {
+        { 
             var randomizer = new Randomizer();
             var mapBounds = CalculateMapBounds();
             var scoreCounter = new ScoreCounter();
@@ -40,12 +40,12 @@ namespace Infrastructure
             new InputRouter(ship).Run();
             uiFactory.InitRoot();
             uiFactory.CreateShipInfo();
-            ship.Destroyed += () =>
+            ship.Killed += () =>
             {
                 uiFactory.CreateGameOver();
             };
         }
-        
+
         private void Update()
         {
             _hazardSpawner.Update(Time.deltaTime);

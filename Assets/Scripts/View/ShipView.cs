@@ -6,7 +6,6 @@ namespace View
     public class ShipView : MonoBehaviour
     {
         [SerializeField] private PositionView _positionView;
-        [SerializeField] private DestroyableView _destroyableView;
         [SerializeField] private HazardColliderView _hazardColliderView;
         
         private IShip _ship;
@@ -15,7 +14,6 @@ namespace View
         {
             _ship = ship;
             _positionView.Init(ship.Movement);
-            _destroyableView.Init(ship);
             _hazardColliderView.Init(ship);
             _ship.Rotation.Changed += SetRotation;
         }
