@@ -24,8 +24,8 @@ namespace Game.Ship
         public void Update(float currentRotation, float deltaTime)
         {
             var rotation = Quaternion.AngleAxis(currentRotation, Vector3.forward);
-            var frameStep = rotation * new Vector2(0, _forwardInput * _acceleration * deltaTime);
-            _velocity += (Vector2) frameStep;
+            var transformedInput = rotation * new Vector2(0, _forwardInput * _acceleration * deltaTime);
+            _velocity += (Vector2) transformedInput;
             _velocity = Vector2.ClampMagnitude(_velocity, _maxSpeed);
             _position += _velocity * deltaTime;
             _velocity = Vector2.Lerp(_velocity, Vector2.zero, _inertiaDrop * deltaTime);
