@@ -14,7 +14,7 @@ namespace Configuration
         [SerializeField] private float _bulletLifetime;
         [SerializeField] private float _laserCooldown;
         [SerializeField] private float _laserLifetime;
-        [SerializeField] private float _laserMaxCount;
+        [SerializeField] private int _laserMaxAmmo;
         [SerializeField] private ShipView _shipPrefab;
         [SerializeField] private BulletView _bulletPrefab;
         [SerializeField] private LaserView _laserPrefab;
@@ -27,7 +27,7 @@ namespace Configuration
         public float BulletLifetime => _bulletLifetime;
         public float LaserCooldown => _laserCooldown;
         public float LaserLifetime => _laserLifetime;
-        public float LaserMaxCount => _laserMaxCount;
+        public int LaserMaxAmmo => _laserMaxAmmo;
         public ShipView ShipPrefab => _shipPrefab;
         public BulletView BulletPrefab => _bulletPrefab;
         public LaserView LaserPrefab => _laserPrefab;

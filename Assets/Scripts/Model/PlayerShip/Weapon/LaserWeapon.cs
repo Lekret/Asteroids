@@ -1,16 +1,20 @@
 ﻿using System;
 using Services;
+using UnityEngine;
 
 namespace Model.PlayerShip.Weapon
 {
     public class LaserWeapon : IShipWeapon
     {
         private readonly ILaserFactory _laserFactory;
+        private readonly int _maxAmmo;
         private int _ammo;
 
-        public LaserWeapon(ILaserFactory laserFactory)
+        public LaserWeapon(ILaserFactory laserFactory, int maxAmmo)
         {
             _laserFactory = laserFactory;
+            _maxAmmo = maxAmmo;
+            _ammo = maxAmmo;
         }
 
         public event Action Shot;
@@ -18,7 +22,7 @@ namespace Model.PlayerShip.Weapon
         
         public void AddAmmo()
         {
-            _ammo++;
+            _ammo = Mathf.Min(_ammo + 1, _maxAmmo);
         }
 
         public void Use()

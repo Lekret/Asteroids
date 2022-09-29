@@ -2,9 +2,10 @@
 
 namespace Model.PlayerShip.Weapon
 {
-    public interface ILaser : IPositionable, IDestroyable, IHazardCollider
+    public interface ILaser : IDestroyable, IHazardCollider
     {
+        Vector2 Position { get; }
         Quaternion Rotation { get; }
-
+        void Update(float deltaTime);
     }
 }

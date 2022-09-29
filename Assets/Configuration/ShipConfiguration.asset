@@ -19,8 +19,8 @@ MonoBehaviour:
   _bulletSpeed: 12
   _bulletLifetime: 5
   _laserCooldown: 3
-  _laserLifetime: 1
-  _laserMaxCount: 3
+  _laserLifetime: 0.5
+  _laserMaxAmmo: 4
   _shipPrefab: {fileID: 350583983711806268, guid: 72be568e317d2cd47a119904f13140d2, type: 3}
   _bulletPrefab: {fileID: 2272653372400664704, guid: bdeff933a151fa34c8cdb24473407a16, type: 3}
-  _laserPrefab: {fileID: -2817555979983623699, guid: 69532b104c421d7419053b3d2279768f, type: 3}
+  _laserPrefab: {fileID: 193830041653266344, guid: 32023e8e3cd91e646aca5b3f20b5aff5, type: 3}

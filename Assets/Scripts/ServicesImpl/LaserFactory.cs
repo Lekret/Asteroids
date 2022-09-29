@@ -1,24 +1,30 @@
-﻿using Model.PlayerShip.Weapon;
+﻿using Configuration;
+using Model.PlayerShip;
+using Model.PlayerShip.Weapon;
 using Services;
 using UnityEngine;
-using View;
 
 namespace ServicesImpl
 {
     public class LaserFactory : ILaserFactory
     {
-        private readonly LaserView _prefab;
+        private readonly ShipConfiguration _shipConfiguration;
+        private readonly IShip _ship;
 
-        public LaserFactory(LaserView prefab)
+        public LaserFactory(ShipConfiguration shipConfiguration, IShip ship)
         {
-            _prefab = prefab;
+            _shipConfiguration = shipConfiguration;
+            _ship = ship;
         }
 
         public ILaser Create()
         {
-            var view = Object.Instantiate(_prefab);
-            // var laser = new Laser();
-            // view.Init(laser);
+            var view = Object.Instantiate(_shipConfiguration.LaserPrefab);
+            var laser = new Laser(
+                _ship.Movement.Position,
+                _ship.Rotation.Current, 
+                _shipConfiguration.LaserLifetime);
+            view.Init(laser);
             return null;
         }
     }

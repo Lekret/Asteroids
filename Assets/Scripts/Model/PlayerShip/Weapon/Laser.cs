@@ -6,24 +6,26 @@ namespace Model.PlayerShip.Weapon
 {
     public class Laser : ILaser
     {
-        private readonly Quaternion _rotation;
         private readonly Lifetime _lifetime;
-        private readonly Vector2 _position;
 
         public Laser(Vector2 position, Quaternion rotation, float lifetime)
         {
-            _position = position;
-            _rotation = rotation;
+            Position = position;
+            Rotation = rotation;
             _lifetime = new Lifetime(lifetime);
         }
 
-        public Quaternion Rotation => _rotation;
-        public Vector2 Position => _position;
-        public event Action<Vector2> PositionChanged;
+        public Quaternion Rotation { get; }
+        public Vector2 Position { get; }
         public event Action Destroyed
         {
             add => _lifetime.Destroyed += value;
             remove => _lifetime.Destroyed -= value;
+        }
+        
+        public void Update(float deltaTime)
+        {
+            _lifetime.Update(deltaTime);
         }
 
         public void CollideWith(IAsteroid asteroid)
