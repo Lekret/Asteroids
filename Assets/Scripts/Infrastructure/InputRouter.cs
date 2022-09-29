@@ -30,7 +30,6 @@ namespace Infrastructure
         {
             _ship.Destroyed -= OnShipDestroyed;
             _controls.Dispose();
-            _ship = null;
         }
 
         private void UsePrimaryWeapon(InputAction.CallbackContext obj)
