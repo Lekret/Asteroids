@@ -9,12 +9,18 @@ namespace Model.PlayerShip
 {
     public class Ship : IShip
     {
+        public ILaserCooldown LaserCooldown { get; set; }
         public IShipTeleport Teleport { get; set; }
         public IShipMovement Movement { get; set; }
         public IShipRotation Rotation { get; set; }
         public IShipWeapon PrimaryWeapon { get; set; }
         public IShipWeapon SecondaryWeapon { get; set; }
         public event Action Destroyed;
+
+        public void Update(float deltaTime)
+        {
+            LaserCooldown.Update(deltaTime);
+        }
 
         public void FixedUpdate(float deltaTime)
         {

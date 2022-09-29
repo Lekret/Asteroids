@@ -37,6 +37,7 @@ namespace ServicesImpl
             ship.Movement = movement;
             ship.Rotation = rotation;
             ship.Teleport = teleport;
+            ship.LaserCooldown = new LaserCooldown(secondaryWeapon, _configuration.LaserCooldown);
             ship.PrimaryWeapon = primaryWeapon;
             ship.SecondaryWeapon = secondaryWeapon;
             var view = Object.Instantiate(_configuration.ShipPrefab);

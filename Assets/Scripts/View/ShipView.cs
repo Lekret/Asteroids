@@ -24,6 +24,11 @@ namespace View
         {
             _ship.Rotation.Changed -= SetRotation;
         }
+
+        private void Update()
+        {
+            _ship.Update(Time.deltaTime);
+        }
         
         private void FixedUpdate()
         {

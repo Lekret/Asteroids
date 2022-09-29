@@ -8,7 +8,7 @@ namespace Model.PlayerShip.Weapon
         private readonly float _cooldownTime;
         private float _cooldown;
         
-        public LaserCooldown(LaserWeapon laserWeapon, int cooldownTime)
+        public LaserCooldown(LaserWeapon laserWeapon, float cooldownTime)
         {
             _laserWeapon = laserWeapon;
             _cooldownTime = cooldownTime;
