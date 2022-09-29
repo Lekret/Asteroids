@@ -1,6 +1,6 @@
 ﻿namespace Model.Asteroids
 {
-    public class Asteroid
+    public class Asteroid : IAsteroid
     {
         
     }

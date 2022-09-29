@@ -5,7 +5,7 @@ namespace View
 {
     public class LaserView : MonoBehaviour
     {
-        public void Init(Laser laser)
+        public void Init(ILaser laser)
         {
             
         }

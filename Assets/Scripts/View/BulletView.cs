@@ -5,9 +5,9 @@ namespace View
 {
     public class BulletView : MonoBehaviour
     {
-        private Bullet _bullet;
+        private IBullet _bullet;
         
-        public void Init(Bullet bullet)
+        public void Init(IBullet bullet)
         {
             _bullet = bullet;
         }

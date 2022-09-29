@@ -4,6 +4,6 @@ namespace Services
 {
     public interface IBulletFactory
     {
-        Bullet Create();
+        IBullet Create();
     }
 }

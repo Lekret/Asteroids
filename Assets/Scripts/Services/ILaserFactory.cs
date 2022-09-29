@@ -4,6 +4,6 @@ namespace Services
 {
     public interface ILaserFactory
     {
-        Laser Create();
+        ILaser Create();
     }
 }

@@ -13,7 +13,7 @@ namespace Services.Impl
             _prefab = prefab;
         }
 
-        public Asteroid Create()
+        public IAsteroid Create()
         {
             var view = Object.Instantiate(_prefab);
             var asteroid = new Asteroid();

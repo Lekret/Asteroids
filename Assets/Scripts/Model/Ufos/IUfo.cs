@@ -1,6 +1,6 @@
 ﻿namespace Model.Ufos
 {
-    public class Ufo : IUfo
+    public interface IUfo
     {
         
     }

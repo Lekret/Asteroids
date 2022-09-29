@@ -1,7 +1,6 @@
 ﻿namespace Model.PlayerShip.Weapon
 {
-    public class Laser : ILaser
+    public interface IBullet
     {
-        
     }
 }

@@ -5,7 +5,7 @@ namespace View
 {
     public class UfoView : MonoBehaviour
     {
-        public void Init(Ufo ufo)
+        public void Init(IUfo ufo)
         {
             
         }

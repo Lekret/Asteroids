@@ -13,7 +13,7 @@ namespace Services.Impl
             _prefab = prefab;
         }
 
-        public Bullet Create()
+        public IBullet Create()
         {
             var view = Object.Instantiate(_prefab);
             var bullet = new Bullet();

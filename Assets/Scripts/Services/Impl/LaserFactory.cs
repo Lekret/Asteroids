@@ -13,7 +13,7 @@ namespace Services.Impl
             _prefab = prefab;
         }
 
-        public Laser Create()
+        public ILaser Create()
         {
             var view = Object.Instantiate(_prefab);
             var laser = new Laser();

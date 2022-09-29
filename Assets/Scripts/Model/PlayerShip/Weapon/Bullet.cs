@@ -1,6 +1,6 @@
 ﻿namespace Model.PlayerShip.Weapon
 {
-    public class Bullet
+    public class Bullet : IBullet
     {
         
     }
