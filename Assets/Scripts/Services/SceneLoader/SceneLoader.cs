@@ -1,7 +1,6 @@
-﻿using Services;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 
-namespace ServicesImpl
+namespace Services.SceneLoader
 {
     public class SceneLoader : ISceneLoader
     {

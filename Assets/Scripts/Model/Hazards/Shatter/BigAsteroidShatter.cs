@@ -1,4 +1,4 @@
-﻿using Services;
+﻿using Factories;
 
 namespace Model.Hazards.Shatter
 {

@@ -1,4 +1,5 @@
-﻿using Services;
+﻿using Factories;
+using Services.Randomizer;
 using UnityEngine;
 
 namespace Model.Hazards

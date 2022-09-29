@@ -1,8 +1,8 @@
 ﻿using Configuration;
 using Model.Hazards;
-using Services;
+using Services.Randomizer;
 
-namespace ServicesImpl
+namespace Factories.Impl
 {
     public class HazardSpawnerFactory
     {

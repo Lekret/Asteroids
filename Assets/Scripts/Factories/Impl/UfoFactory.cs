@@ -2,10 +2,9 @@
 using Model.GameMap;
 using Model.Hazards;
 using Model.PlayerShip.Movement;
-using Services;
 using UnityEngine;
 
-namespace ServicesImpl
+namespace Factories.Impl
 {
     public class UfoFactory : IUfoFactory
     {

@@ -1,6 +1,6 @@
 ﻿using Model.PlayerShip.Weapon;
 
-namespace Services
+namespace Factories
 {
     public interface ILaserFactory
     {

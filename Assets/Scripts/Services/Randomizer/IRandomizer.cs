@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Services
+namespace Services.Randomizer
 {
     public interface IRandomizer
     {

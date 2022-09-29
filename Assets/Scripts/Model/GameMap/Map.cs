@@ -1,4 +1,4 @@
-﻿using Services;
+﻿using Services.Randomizer;
 using UnityEngine;
 
 namespace Model.GameMap

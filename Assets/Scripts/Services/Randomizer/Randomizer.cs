@@ -1,7 +1,6 @@
-﻿using Services;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace ServicesImpl
+namespace Services.Randomizer
 {
     public class Randomizer : IRandomizer
     {

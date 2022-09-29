@@ -1,7 +1,7 @@
 ﻿using Model.Hazards;
 using UnityEngine;
 
-namespace Services
+namespace Factories
 {
     public interface IAsteroidFactory
     {

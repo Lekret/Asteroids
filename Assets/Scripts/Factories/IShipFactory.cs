@@ -1,6 +1,6 @@
 ﻿using Model.PlayerShip;
 
-namespace Services
+namespace Factories
 {
     public interface IShipFactory
     {

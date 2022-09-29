@@ -1,6 +1,6 @@
 ﻿using Model.Hazards;
 
-namespace Services
+namespace Factories
 {
     public interface IUfoFactory
     {

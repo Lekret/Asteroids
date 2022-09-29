@@ -1,5 +1,5 @@
 ﻿using Model.Score;
-using Services;
+using Services.SceneLoader;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

@@ -1,5 +1,5 @@
 ﻿using System;
-using Services;
+using Factories;
 using UnityEngine;
 
 namespace Model.PlayerShip.Weapon

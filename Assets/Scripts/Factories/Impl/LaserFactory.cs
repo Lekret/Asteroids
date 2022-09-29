@@ -1,10 +1,9 @@
 ﻿using Configuration;
 using Model.PlayerShip;
 using Model.PlayerShip.Weapon;
-using Services;
 using UnityEngine;
 
-namespace ServicesImpl
+namespace Factories.Impl
 {
     public class LaserFactory : ILaserFactory
     {

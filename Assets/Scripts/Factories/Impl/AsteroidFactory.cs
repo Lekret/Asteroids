@@ -2,10 +2,10 @@
 using Model.GameMap;
 using Model.Hazards;
 using Model.Hazards.Shatter;
-using Services;
+using Services.Randomizer;
 using UnityEngine;
 
-namespace ServicesImpl
+namespace Factories.Impl
 {
     public class AsteroidFactory : IAsteroidFactory
     {
