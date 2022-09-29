@@ -1,4 +1,5 @@
 ﻿using Model.Score;
+using Services.Pause;
 using Services.SceneLoader;
 using TMPro;
 using UnityEngine;
@@ -12,11 +13,17 @@ namespace Ui
         [SerializeField] private TextMeshProUGUI _score;
 
         private ISceneLoader _sceneLoader;
+        private IPauseService _pauseService;
 
-        public void Init(ISceneLoader sceneLoader, IScoreTracker scoreTracker)
+        public void Init(
+            ISceneLoader sceneLoader, 
+            IPauseService pauseService,
+            IScoreTracker scoreTracker)
         {
             _sceneLoader = sceneLoader;
+            _pauseService = pauseService;
             _score.text = $"Score: {scoreTracker.Score}";
+            _pauseService.Pause();
         }
 
         private void Awake()
@@ -31,7 +38,8 @@ namespace Ui
 
         private void Restart()
         {
-            _sceneLoader.Restart();
+            _pauseService.Unpause();
+            _sceneLoader.RestartCurrentScene();
         }
     }
 }

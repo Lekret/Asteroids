@@ -2,6 +2,6 @@
 {
     public interface ISceneLoader
     {
-        void Restart();
+        void RestartCurrentScene();
     }
 }

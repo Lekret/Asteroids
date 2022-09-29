@@ -3,6 +3,7 @@ using Factories.Impl;
 using Model.GameMap;
 using Model.Hazards;
 using Model.Score;
+using Services.Pause;
 using Services.Randomizer;
 using Services.SceneLoader;
 using UnityEngine;
@@ -22,6 +23,7 @@ namespace Infrastructure
         private void Start()
         {
             var randomizer = new Randomizer();
+            var pauseService = new PauseService();
             var scoreTracker = new ScoreTracker();
             var mapBounds = CalculateMapBounds();
             var sceneLoader = new SceneLoader();
@@ -37,7 +39,7 @@ namespace Infrastructure
                 _hazardConfiguration,
                 scoreTracker);
             _hazardSpawner = hazardSpawnerFactory.Create();
-            var uiFactory = new UiFactory(_uiConfiguration, ship, scoreTracker, sceneLoader);
+            var uiFactory = new UiFactory(_uiConfiguration, scoreTracker, sceneLoader, pauseService, ship);
             new InputRouter(ship).Run();
             uiFactory.InitRoot();
             uiFactory.CreateShipInfo();

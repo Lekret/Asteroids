@@ -4,7 +4,7 @@ namespace Services.SceneLoader
 {
     public class SceneLoader : ISceneLoader
     {
-        public void Restart()
+        public void RestartCurrentScene()
         {
             var currentIdx = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(currentIdx);
