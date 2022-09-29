@@ -10,8 +10,8 @@ namespace Factories.Impl
     public class AsteroidFactory : IAsteroidFactory
     {
         private readonly IAsteroidConfiguration _configuration;
-        private readonly BigAsteroidShatter _bigAsteroidShatter;
-        private readonly SmallAsteroidShatter _smallAsteroidShatter;
+        private readonly BigAsteroidShatterer _bigAsteroidShatterer;
+        private readonly SmallAsteroidShatterer _smallAsteroidShatterer;
         private readonly IRandomizer _randomizer;
         private readonly IMap _map;
 
@@ -23,8 +23,8 @@ namespace Factories.Impl
             _configuration = configuration;
             _map = map;
             _randomizer = randomizer;
-            _bigAsteroidShatter = new BigAsteroidShatter(this);
-            _smallAsteroidShatter = new SmallAsteroidShatter();
+            _bigAsteroidShatterer = new BigAsteroidShatterer(this);
+            _smallAsteroidShatterer = new SmallAsteroidShatterer();
         }
 
         public IAsteroid CreateBig()
@@ -33,7 +33,7 @@ namespace Factories.Impl
             var position = _map.RandomOuterPoint();
             var direction = (_map.RandomInnerPoint() - position).normalized;
             var asteroid = new Asteroid(
-                _bigAsteroidShatter,
+                _bigAsteroidShatterer,
                 position,
                 direction,
                 _configuration.BigAsteroidSpeed,
@@ -46,7 +46,7 @@ namespace Factories.Impl
         {
             var view = Object.Instantiate(_configuration.SmallAsteroidPrefab);
             var asteroid = new Asteroid(
-                _smallAsteroidShatter,
+                _smallAsteroidShatterer,
                 position,
                 _randomizer.Direction(),
                 _configuration.SmallAsteroidSpeed,

@@ -2,11 +2,11 @@
 
 namespace Model.Hazards.Shatter
 {
-    public class BigAsteroidShatter : IAsteroidShatter
+    public class BigAsteroidShatterer : IAsteroidShatterer
     {
         private readonly IAsteroidFactory _asteroidFactory;
 
-        public BigAsteroidShatter(IAsteroidFactory asteroidFactory)
+        public BigAsteroidShatterer(IAsteroidFactory asteroidFactory)
         {
             _asteroidFactory = asteroidFactory;
         }

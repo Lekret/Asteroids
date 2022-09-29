@@ -1,6 +1,6 @@
 ﻿namespace Model.Hazards.Shatter
 {
-    public class SmallAsteroidShatter : IAsteroidShatter
+    public class SmallAsteroidShatterer : IAsteroidShatterer
     {
         public void Shatter(IAsteroid asteroid)
         {

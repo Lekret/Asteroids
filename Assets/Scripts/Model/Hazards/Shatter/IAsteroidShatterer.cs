@@ -1,6 +1,6 @@
 ﻿namespace Model.Hazards.Shatter
 {
-    public interface IAsteroidShatter
+    public interface IAsteroidShatterer
     {
         void Shatter(IAsteroid asteroid);
     }

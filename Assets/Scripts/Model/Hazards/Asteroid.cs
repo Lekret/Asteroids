@@ -7,19 +7,19 @@ namespace Model.Hazards
 {
     public class Asteroid : IAsteroid
     {
-        private readonly IAsteroidShatter _asteroidShatter;
+        private readonly IAsteroidShatterer _asteroidShatterer;
         private readonly Vector2 _direction;
         private readonly Lifetime _lifetime;
         private Vector2 _position;
 
         public Asteroid(
-            IAsteroidShatter asteroidShatter,
+            IAsteroidShatterer asteroidShatterer,
             Vector2 position,
             Vector2 direction,
             float speed,
             float lifetime)
         {
-            _asteroidShatter = asteroidShatter;
+            _asteroidShatterer = asteroidShatterer;
             _position = position;
             _direction = direction * speed;
             _lifetime = new Lifetime(lifetime);
@@ -52,7 +52,7 @@ namespace Model.Hazards
 
         public void Shatter()
         {
-            _asteroidShatter.Shatter(this);
+            _asteroidShatterer.Shatter(this);
         }
     }
 }
