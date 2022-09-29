@@ -1,4 +1,4 @@
-﻿namespace Model.Asteroids
+﻿namespace Model.Obstacles
 {
     public interface IAsteroid
     {

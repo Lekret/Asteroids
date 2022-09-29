@@ -1,4 +1,4 @@
-﻿using Model.Ufos;
+﻿using Model.Obstacles;
 using UnityEngine;
 
 namespace View

@@ -1,4 +1,4 @@
-﻿namespace Model.Ufos
+﻿namespace Model.Obstacles
 {
     public class Ufo : IUfo
     {

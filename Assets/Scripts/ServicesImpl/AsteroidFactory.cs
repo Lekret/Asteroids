@@ -1,4 +1,4 @@
-﻿using Model.Asteroids;
+﻿using Model.Obstacles;
 using Services;
 using UnityEngine;
 using View;

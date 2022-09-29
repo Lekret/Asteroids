@@ -1,4 +1,4 @@
-﻿using Model.Asteroids;
+﻿using Model.Obstacles;
 using UnityEngine;
 
 namespace View
