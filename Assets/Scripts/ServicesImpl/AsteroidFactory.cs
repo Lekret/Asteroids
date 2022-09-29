@@ -22,7 +22,11 @@ namespace ServicesImpl
             var view = Object.Instantiate(_configuration.AsteroidPrefab);
             var position = _map.RandomOuterPoint();
             var direction = (_map.RandomInnerPoint() - position).normalized;
-            var asteroid = new Asteroid(position, direction, _configuration.AsteroidLifetime);
+            var asteroid = new Asteroid(
+                position, 
+                direction, 
+                _configuration.BigAsteroidSpeed,
+                _configuration.AsteroidLifetime);
             view.Init(asteroid);
             return asteroid;
         }
