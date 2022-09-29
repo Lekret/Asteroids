@@ -1,6 +1,6 @@
 using Configuration;
 using Model.PlayerShip;
-using Services.Impl;
+using ServicesImpl;
 using UnityEngine;
 using Utils;
 

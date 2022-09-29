@@ -1,8 +1,9 @@
 ﻿using Model.Asteroids;
+using Services;
 using UnityEngine;
 using View;
 
-namespace Services.Impl
+namespace ServicesImpl
 {
     public class AsteroidFactory : IAsteroidFactory
     {

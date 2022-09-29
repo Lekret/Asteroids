@@ -4,9 +4,10 @@ using Model.PlayerShip.Movement;
 using Model.PlayerShip.Rotation;
 using Model.PlayerShip.Teleport;
 using Model.PlayerShip.Weapon;
+using Services;
 using UnityEngine;
 
-namespace Services.Impl
+namespace ServicesImpl
 {
     public class ShipFactory : IShipFactory
     {
