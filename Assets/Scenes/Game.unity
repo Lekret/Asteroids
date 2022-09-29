@@ -314,6 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 519420031}
   _shipConfiguration: {fileID: 11400000, guid: e5e645acef09e1c488ba27a8c38eef9a, type: 2}
+  _gameConfiguration: {fileID: 11400000, guid: 56863f4c0ecbf7245a1a9521a5d266b2, type: 2}
 --- !u!4 &1585654285
 Transform:
   m_ObjectHideFlags: 0
