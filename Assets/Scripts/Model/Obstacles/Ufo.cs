@@ -16,6 +16,7 @@ namespace Model.Obstacles
             _speed = speed;
         }
 
+        public Vector2 Position => _position;
         public event Action<Vector2> PositionChanged;
 
         public void Update(float deltaTime)

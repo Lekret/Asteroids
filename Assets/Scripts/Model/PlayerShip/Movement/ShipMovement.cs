@@ -30,9 +30,8 @@ namespace Model.PlayerShip.Movement
             }
         }
 
-        public void Update(float currentRotation, float deltaTime)
+        public void Update(Quaternion rotation, float deltaTime)
         {
-            var rotation = Quaternion.AngleAxis(currentRotation, Vector3.forward);
             var transformedInput = rotation * new Vector2(0, _forwardInput * _acceleration * deltaTime);
             _velocity += (Vector2) transformedInput;
             _velocity = Vector2.ClampMagnitude(_velocity, _maxSpeed);

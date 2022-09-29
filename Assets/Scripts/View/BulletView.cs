@@ -10,11 +10,24 @@ namespace View
         public void Init(IBullet bullet)
         {
             _bullet = bullet;
+            _bullet.PositionChanged += SetPosition;
+            SetPosition(_bullet.Position);
+            transform.rotation = _bullet.Rotation;
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnDestroy()
         {
-            
+            _bullet.PositionChanged -= SetPosition;
+        }
+        
+        private void Update()
+        {
+            _bullet.Update(Time.deltaTime);
+        }
+
+        private void SetPosition(Vector2 position)
+        {
+            transform.position = position;
         }
     }
 }

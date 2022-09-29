@@ -1,11 +1,12 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Model.PlayerShip.Rotation
 {
     public class ShipRotation : IShipRotation
     {
         private readonly float _rotationSpeed;
-        private float _current;
+        private Quaternion _current;
         private float _rotationInput;
 
         public ShipRotation(float rotationSpeed)
@@ -13,12 +14,13 @@ namespace Model.PlayerShip.Rotation
             _rotationSpeed = rotationSpeed;
         }
 
-        public float Current => _current;
-        public event Action<float> Changed;
+        public Quaternion Current => _current;
+        public event Action<Quaternion> Changed;
 
         public void Update(float deltaTime)
         {
-            _current += _rotationInput * _rotationSpeed * deltaTime;
+            var eulerZ = _rotationInput * _rotationSpeed * deltaTime;
+            _current *= Quaternion.AngleAxis(eulerZ, Vector3.forward);
             Changed?.Invoke(_current);
         }
         

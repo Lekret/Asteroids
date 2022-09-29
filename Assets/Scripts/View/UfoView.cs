@@ -11,11 +11,17 @@ namespace View
         {
             _ufo = ufo;
             _ufo.PositionChanged += SetPosition;
+            SetPosition(_ufo.Position);
         }
 
         private void OnDestroy()
         {
             _ufo.PositionChanged -= SetPosition;
+        }
+        
+        private void Update()
+        {
+            _ufo.Update(Time.deltaTime);
         }
         
         private void SetPosition(Vector2 position)

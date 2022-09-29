@@ -1,11 +1,12 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Model.PlayerShip.Rotation
 {
     public interface IShipRotation
     {
-        float Current { get; }
-        event Action<float> Changed;
+        Quaternion Current { get; }
+        event Action<Quaternion> Changed;
         void SetRotationInput(float rotationInput);
         void Update(float deltaTime);
     }

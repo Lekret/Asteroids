@@ -8,6 +8,6 @@ namespace Model.PlayerShip.Movement
         event Action<Vector2> PositionChanged;
         Vector2 Position { get; set; }
         void SetForwardInput(float forwardInput);
-        void Update(float currentRotation, float deltaTime);
+        void Update(Quaternion rotation, float deltaTime);
     }
 }

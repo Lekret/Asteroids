@@ -1,4 +1,5 @@
-﻿using Model.PlayerShip.Weapon;
+﻿using Model.PlayerShip;
+using Model.PlayerShip.Weapon;
 using Services;
 using UnityEngine;
 using View;
@@ -8,16 +9,19 @@ namespace ServicesImpl
     public class BulletFactory : IBulletFactory
     {
         private readonly BulletView _prefab;
+        private readonly IShip _ship;
 
-        public BulletFactory(BulletView prefab)
+        public BulletFactory(BulletView prefab, IShip ship)
         {
             _prefab = prefab;
+            _ship = ship;
         }
 
         public IBullet Create()
         {
             var view = Object.Instantiate(_prefab);
-            var bullet = new Bullet();
+            var position = _ship.Movement.Position;
+            var bullet = new Bullet(position, _ship.Rotation.Current);
             view.Init(bullet);
             return bullet;
         }

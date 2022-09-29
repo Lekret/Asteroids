@@ -8,7 +8,7 @@ namespace Model.Obstacles
         private readonly Vector2 _direction;
         private Vector2 _position;
 
-        public Asteroid(Vector2 direction, Vector2 position)
+        public Asteroid(Vector2 position, Vector2 direction)
         {
             _direction = direction;
             _position = position;

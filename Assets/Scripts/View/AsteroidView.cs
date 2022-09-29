@@ -10,6 +10,8 @@ namespace View
         public void Init(IAsteroid asteroid)
         {
             _asteroid = asteroid;
+            _asteroid.PositionChanged += SetPosition;
+            SetPosition(_asteroid.Position);
         }
 
         private void OnDestroy()

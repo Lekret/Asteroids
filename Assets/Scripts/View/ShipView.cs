@@ -30,9 +30,9 @@ namespace View
             transform.position = position;
         }
 
-        private void SetRotation(float rotationZ)
+        private void SetRotation(Quaternion rotation)
         {
-            transform.rotation = Quaternion.AngleAxis(rotationZ, Vector3.forward);
+            transform.rotation = rotation;
         }
     }
 }

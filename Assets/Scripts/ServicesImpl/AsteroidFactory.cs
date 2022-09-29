@@ -22,7 +22,7 @@ namespace ServicesImpl
         public IAsteroid Create()
         {
             var view = Object.Instantiate(_prefab);
-            var asteroid = new Asteroid(_randomizer.RandomDirection(), _map.RandomOuterPoint());
+            var asteroid = new Asteroid(_map.RandomOuterPoint(), _randomizer.RandomDirection());
             view.Init(asteroid);
             return asteroid;
         }

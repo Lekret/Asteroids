@@ -23,22 +23,22 @@ namespace ServicesImpl
 
         public IShip Create()
         {
-            var shipMovement = new ShipMovement(
+            var movement = new ShipMovement(
                 _configuration.Acceleration,
                 _configuration.MaxSpeed,
                 _configuration.InertiaDrop);
-            var shipRotation = new ShipRotation(_configuration.RotationSpeed);
-            var shipTeleport = new ShipTeleport(_map, shipMovement);
-            var bulletFactory = new BulletFactory(_configuration.BulletPrefab);
+            var ship = new ShipFacade();
+            var rotation = new ShipRotation(_configuration.RotationSpeed);
+            var teleport = new ShipTeleport(_map, movement);
+            var bulletFactory = new BulletFactory(_configuration.BulletPrefab, ship);
             var primaryWeapon = new BulletWeapon(bulletFactory);
             var laserFactory = new LaserFactory(_configuration.LaserPrefab);
             var secondaryWeapon = new LaserWeapon(laserFactory);
-            var ship = new Ship(
-                shipMovement,
-                shipRotation,
-                shipTeleport, 
-                primaryWeapon,
-                secondaryWeapon);
+            ship.Movement = movement;
+            ship.Rotation = rotation;
+            ship.Teleport = teleport;
+            ship.PrimaryWeapon = primaryWeapon;
+            ship.SecondaryWeapon = secondaryWeapon;
             var view = Object.Instantiate(_configuration.ShipPrefab);
             view.Init(ship);
             return ship;
