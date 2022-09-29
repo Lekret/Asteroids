@@ -1,4 +1,6 @@
-﻿using Services;
+﻿using Model.Score;
+using Services;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,14 +8,15 @@ namespace Ui
 {
     public class GameOverWindow : MonoBehaviour
     {
-        [SerializeField] private GameObject _root;
         [SerializeField] private Button _button;
+        [SerializeField] private TextMeshProUGUI _score;
 
         private ISceneLoader _sceneLoader;
 
-        public void Init(ISceneLoader sceneLoader)
+        public void Init(ISceneLoader sceneLoader, IScoreCounter scoreCounter)
         {
             _sceneLoader = sceneLoader;
+            _score.text = $"Score: {scoreCounter.Score}";
         }
         
         private void Awake()
@@ -26,11 +29,6 @@ namespace Ui
             _button.onClick.RemoveListener(Restart);
         }
 
-        private void Enable()
-        {
-            _root.SetActive(true);
-        }
-        
         private void Restart()
         {
             _sceneLoader.Restart();
