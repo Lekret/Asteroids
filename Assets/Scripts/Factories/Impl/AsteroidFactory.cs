@@ -15,7 +15,10 @@ namespace Factories.Impl
         private readonly IRandomizer _randomizer;
         private readonly IMap _map;
 
-        public AsteroidFactory(IAsteroidConfiguration configuration, IMap map, IRandomizer randomizer)
+        public AsteroidFactory(
+            IAsteroidConfiguration configuration,
+            IMap map, 
+            IRandomizer randomizer)
         {
             _configuration = configuration;
             _map = map;

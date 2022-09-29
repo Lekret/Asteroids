@@ -22,8 +22,8 @@ namespace Infrastructure
         private void Start()
         { 
             var randomizer = new Randomizer();
+            var scoreTracker = new ScoreTracker();
             var mapBounds = CalculateMapBounds();
-            var scoreCounter = new ScoreCounter();
             var sceneLoader = new SceneLoader();
             var map = new Map(mapBounds, randomizer);
             var shipFactory = new ShipFactory(_shipConfiguration, map);
@@ -34,9 +34,10 @@ namespace Infrastructure
                 asteroidFactory,
                 ufoFactory, 
                 randomizer, 
-                _hazardConfiguration);
+                _hazardConfiguration,
+                scoreTracker);
             _hazardSpawner = hazardSpawnerFactory.Create();
-            var uiFactory = new UiFactory(_uiConfiguration, ship, scoreCounter, sceneLoader);
+            var uiFactory = new UiFactory(_uiConfiguration, ship, scoreTracker, sceneLoader);
             new InputRouter(ship).Run();
             uiFactory.InitRoot();
             uiFactory.CreateShipInfo();

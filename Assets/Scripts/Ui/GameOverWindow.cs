@@ -13,10 +13,10 @@ namespace Ui
 
         private ISceneLoader _sceneLoader;
 
-        public void Init(ISceneLoader sceneLoader, IScoreCounter scoreCounter)
+        public void Init(ISceneLoader sceneLoader, IScoreTracker scoreTracker)
         {
             _sceneLoader = sceneLoader;
-            _score.text = $"Score: {scoreCounter.Score}";
+            _score.text = $"Score: {scoreTracker.Score}";
         }
         
         private void Awake()

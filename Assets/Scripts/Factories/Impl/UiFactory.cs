@@ -9,7 +9,7 @@ namespace Factories.Impl
     public class UiFactory : IUiFactory
     {
         private readonly UiConfiguration _configuration;
-        private readonly IScoreCounter _scoreCounter;
+        private readonly IScoreTracker _scoreTracker;
         private readonly ISceneLoader _sceneLoader;
         private readonly IShip _ship;
         private Transform _root;
@@ -17,12 +17,12 @@ namespace Factories.Impl
         public UiFactory(
             UiConfiguration configuration,
             IShip ship,
-            IScoreCounter scoreCounter,
+            IScoreTracker scoreTracker,
             ISceneLoader sceneLoader)
         {
             _configuration = configuration;
             _ship = ship;
-            _scoreCounter = scoreCounter;
+            _scoreTracker = scoreTracker;
             _sceneLoader = sceneLoader;
         }
 
@@ -40,7 +40,7 @@ namespace Factories.Impl
         public void CreateGameOver()
         {
             var gameOver = Object.Instantiate(_configuration.GameOverPrefab, _root);
-            gameOver.Init(_sceneLoader, _scoreCounter);
+            gameOver.Init(_sceneLoader, _scoreTracker);
         }
     }
 }
