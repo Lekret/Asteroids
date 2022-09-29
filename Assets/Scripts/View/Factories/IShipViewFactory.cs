@@ -1,9 +1,9 @@
-﻿using Game.Ship;
+﻿using Game.PlayerShip;
 
 namespace View.Factories
 {
     public interface IShipViewFactory
     {
-        ShipView Create(ShipMovement shipMovement, ShipRotation shipRotation);
+        ShipView Create(IShipMovement shipMovement, IShipRotation shipRotation);
     }
 }

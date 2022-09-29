@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Game.Ship
+namespace Game.PlayerShip
 {
-    public class ShipRotation
+    public class ShipRotation : IShipRotation
     {
         private readonly float _rotationSpeed;
         private float _current;

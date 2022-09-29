@@ -1,5 +1,5 @@
 ﻿using Configuration;
-using Game.Ship;
+using Game.PlayerShip;
 
 namespace Game.Factories
 {
@@ -12,14 +12,14 @@ namespace Game.Factories
             _shipConfiguration = shipConfiguration;
         }
 
-        public Ship.Ship Create()
+        public Ship Create()
         {
             var shipMovement = new ShipMovement(
                 _shipConfiguration.Acceleration,
                 _shipConfiguration.MaxSpeed,
                 _shipConfiguration.InertiaDrop);
             var shipRotation = new ShipRotation(_shipConfiguration.RotationSpeed);
-            var ship = new Ship.Ship(shipMovement, shipRotation);
+            var ship = new Ship(shipMovement, shipRotation);
             return ship;
         }
     }

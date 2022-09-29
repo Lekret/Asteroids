@@ -1,6 +1,6 @@
 using Configuration;
 using Game.Factories;
-using Game.Ship;
+using Game.PlayerShip;
 using UnityEngine;
 using View.Factories;
 

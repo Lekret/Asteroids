@@ -1,14 +1,14 @@
-﻿using Game.Ship;
+﻿using Game.PlayerShip;
 using UnityEngine;
 
 namespace View
 {
     public class ShipView : MonoBehaviour
     {
-        private ShipMovement _shipMovement;
-        private ShipRotation _shipRotation;
+        private IShipMovement _shipMovement;
+        private IShipRotation _shipRotation;
 
-        public void Init(ShipMovement shipMovement, ShipRotation shipRotation)
+        public void Init(IShipMovement shipMovement, IShipRotation shipRotation)
         {
             _shipMovement = shipMovement;
             _shipRotation = shipRotation;

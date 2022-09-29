@@ -1,4 +1,4 @@
-﻿namespace Game.Ship
+﻿namespace Game.PlayerShip
 {
     public class Ship
     {

@@ -1,4 +1,4 @@
-﻿using Game.Ship;
+﻿using Game.PlayerShip;
 using UnityEngine;
 
 namespace View.Factories
@@ -12,7 +12,7 @@ namespace View.Factories
             _prefab = prefab;
         }
 
-        public ShipView Create(ShipMovement shipMovement, ShipRotation shipRotation)
+        public ShipView Create(IShipMovement shipMovement, IShipRotation shipRotation)
         {
             var shipView = Object.Instantiate(_prefab);
             shipView.Init(shipMovement, shipRotation);

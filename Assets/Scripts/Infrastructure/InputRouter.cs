@@ -1,4 +1,4 @@
-﻿using Game.Ship;
+﻿using Game.PlayerShip;
 using UnityEngine.InputSystem;
 
 namespace Infrastructure
@@ -6,10 +6,10 @@ namespace Infrastructure
     public class InputRouter
     {
         private readonly PlayerControls _controls = new PlayerControls();
-        private readonly ShipMovement _shipMovement;
-        private readonly ShipRotation _shipRotation;
+        private readonly IShipMovement _shipMovement;
+        private readonly IShipRotation _shipRotation;
 
-        public InputRouter(ShipMovement shipMovement, ShipRotation shipRotation)
+        public InputRouter(IShipMovement shipMovement, IShipRotation shipRotation)
         {
             _shipMovement = shipMovement;
             _shipRotation = shipRotation;

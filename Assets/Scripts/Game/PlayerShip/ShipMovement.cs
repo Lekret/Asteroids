@@ -1,9 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Game.Ship
+namespace Game.PlayerShip
 {
-    public class ShipMovement
+    public class ShipMovement : IShipMovement
     {
         private readonly float _acceleration;
         private readonly float _maxSpeed;
