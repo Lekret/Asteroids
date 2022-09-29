@@ -3,8 +3,8 @@ using View;
 
 namespace Configuration
 {
-    [CreateAssetMenu(menuName = "Config/Game configuration", fileName = "GameConfiguration")]
-    public class GameConfiguration : ScriptableObject,
+    [CreateAssetMenu(menuName = "Config/Hazard configuration", fileName = "HazardConfiguration")]
+    public class HazardConfiguration : ScriptableObject,
         ISpawnConfiguration, IAsteroidConfiguration, IUfoConfiguration
     {
         [SerializeField] private float _ufoSpeed;

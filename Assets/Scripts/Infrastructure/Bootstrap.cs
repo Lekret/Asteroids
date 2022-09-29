@@ -10,7 +10,7 @@ namespace Infrastructure
     {
         [SerializeField] private Camera _camera;
         [SerializeField] private ShipConfiguration _shipConfiguration;
-        [SerializeField] private GameConfiguration _gameConfiguration;
+        [SerializeField] private HazardConfiguration _hazardConfiguration;
 
         private GameLoop _gameLoop;
         
@@ -21,13 +21,13 @@ namespace Infrastructure
             var map = new Map(mapBounds, randomizer);
             var shipFactory = new ShipFactory(_shipConfiguration, map);
             var ship = shipFactory.Create();
-            var asteroidFactory = new AsteroidFactory(_gameConfiguration, map, randomizer);
-            var ufoFactory = new UfoFactory(_gameConfiguration, ship.Movement, map);
+            var asteroidFactory = new AsteroidFactory(_hazardConfiguration, map, randomizer);
+            var ufoFactory = new UfoFactory(_hazardConfiguration, ship.Movement, map);
             var hazardSpawnerFactory = new HazardSpawnerFactory(
                 asteroidFactory,
                 ufoFactory, 
                 randomizer, 
-                _gameConfiguration);
+                _hazardConfiguration);
             var hazardSpawner = hazardSpawnerFactory.Create();
             new InputRouter(ship).Run();
             _gameLoop = new GameLoop(hazardSpawner);
