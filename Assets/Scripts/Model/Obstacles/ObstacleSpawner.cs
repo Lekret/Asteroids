@@ -39,7 +39,7 @@ namespace Model.Obstacles
         {
             if (_randomizer.Boolean())
             {
-                _asteroidFactory.Create();
+                _asteroidFactory.Create(AsteroidSize.Big);
             }
             else
             {

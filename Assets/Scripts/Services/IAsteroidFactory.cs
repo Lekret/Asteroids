@@ -4,6 +4,6 @@ namespace Services
 {
     public interface IAsteroidFactory
     {
-        IAsteroid Create();
+        IAsteroid Create(AsteroidSize size);
     }
 }

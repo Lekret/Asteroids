@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5581075589817088503}
   - component: {fileID: 692369685731588761}
   m_Layer: 0
-  m_Name: Asteroid
+  m_Name: SmallAsteroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 2.5, y: 2.5}
+  m_Size: {x: 1.25, y: 1.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
