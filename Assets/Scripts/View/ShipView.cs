@@ -13,13 +13,13 @@ namespace View
             _shipMovement = shipMovement;
             _shipRotation = shipRotation;
             _shipMovement.PositionChanged += SetPosition;
-            _shipRotation.RotationChanged += SetRotation;
+            _shipRotation.Changed += SetRotation;
         }
 
         private void OnDestroy()
         {
             _shipMovement.PositionChanged -= SetPosition;
-            _shipRotation.RotationChanged -= SetRotation;
+            _shipRotation.Changed -= SetRotation;
         }
 
         private void SetPosition(Vector2 position)

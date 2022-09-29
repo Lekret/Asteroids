@@ -5,7 +5,7 @@ namespace Game.PlayerShip
     public interface IShipRotation
     {
         float Current { get; }
-        event Action<float> RotationChanged;
+        event Action<float> Changed;
         void SetRotationInput(float rotationInput);
     }
 }
