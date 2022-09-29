@@ -37,9 +37,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Attack"",
+                    ""name"": ""PrimaryAttack"",
                     ""type"": ""Button"",
                     ""id"": ""48d3488e-8f44-4c25-b7b7-0d3393509514"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondaryAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""518d876f-93d0-4eeb-903b-669db1a24350"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -70,11 +79,11 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""817e004f-7b2d-48fd-9453-7fb9a01da500"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/j"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PC"",
-                    ""action"": ""Attack"",
+                    ""action"": ""PrimaryAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -110,6 +119,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Rotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c0dba330-99b9-483e-9f46-847f2b35e0d4"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondaryAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -131,7 +151,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         // ShipMap
         m_ShipMap = asset.FindActionMap("ShipMap", throwIfNotFound: true);
         m_ShipMap_Forward = m_ShipMap.FindAction("Forward", throwIfNotFound: true);
-        m_ShipMap_Attack = m_ShipMap.FindAction("Attack", throwIfNotFound: true);
+        m_ShipMap_PrimaryAttack = m_ShipMap.FindAction("PrimaryAttack", throwIfNotFound: true);
+        m_ShipMap_SecondaryAttack = m_ShipMap.FindAction("SecondaryAttack", throwIfNotFound: true);
         m_ShipMap_Rotation = m_ShipMap.FindAction("Rotation", throwIfNotFound: true);
     }
 
@@ -193,14 +214,16 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_ShipMap;
     private IShipMapActions m_ShipMapActionsCallbackInterface;
     private readonly InputAction m_ShipMap_Forward;
-    private readonly InputAction m_ShipMap_Attack;
+    private readonly InputAction m_ShipMap_PrimaryAttack;
+    private readonly InputAction m_ShipMap_SecondaryAttack;
     private readonly InputAction m_ShipMap_Rotation;
     public struct ShipMapActions
     {
         private @PlayerControls m_Wrapper;
         public ShipMapActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Forward => m_Wrapper.m_ShipMap_Forward;
-        public InputAction @Attack => m_Wrapper.m_ShipMap_Attack;
+        public InputAction @PrimaryAttack => m_Wrapper.m_ShipMap_PrimaryAttack;
+        public InputAction @SecondaryAttack => m_Wrapper.m_ShipMap_SecondaryAttack;
         public InputAction @Rotation => m_Wrapper.m_ShipMap_Rotation;
         public InputActionMap Get() { return m_Wrapper.m_ShipMap; }
         public void Enable() { Get().Enable(); }
@@ -214,9 +237,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Forward.started -= m_Wrapper.m_ShipMapActionsCallbackInterface.OnForward;
                 @Forward.performed -= m_Wrapper.m_ShipMapActionsCallbackInterface.OnForward;
                 @Forward.canceled -= m_Wrapper.m_ShipMapActionsCallbackInterface.OnForward;
-                @Attack.started -= m_Wrapper.m_ShipMapActionsCallbackInterface.OnAttack;
-                @Attack.performed -= m_Wrapper.m_ShipMapActionsCallbackInterface.OnAttack;
-                @Attack.canceled -= m_Wrapper.m_ShipMapActionsCallbackInterface.OnAttack;
+                @PrimaryAttack.started -= m_Wrapper.m_ShipMapActionsCallbackInterface.OnPrimaryAttack;
+                @PrimaryAttack.performed -= m_Wrapper.m_ShipMapActionsCallbackInterface.OnPrimaryAttack;
+                @PrimaryAttack.canceled -= m_Wrapper.m_ShipMapActionsCallbackInterface.OnPrimaryAttack;
+                @SecondaryAttack.started -= m_Wrapper.m_ShipMapActionsCallbackInterface.OnSecondaryAttack;
+                @SecondaryAttack.performed -= m_Wrapper.m_ShipMapActionsCallbackInterface.OnSecondaryAttack;
+                @SecondaryAttack.canceled -= m_Wrapper.m_ShipMapActionsCallbackInterface.OnSecondaryAttack;
                 @Rotation.started -= m_Wrapper.m_ShipMapActionsCallbackInterface.OnRotation;
                 @Rotation.performed -= m_Wrapper.m_ShipMapActionsCallbackInterface.OnRotation;
                 @Rotation.canceled -= m_Wrapper.m_ShipMapActionsCallbackInterface.OnRotation;
@@ -227,9 +253,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Forward.started += instance.OnForward;
                 @Forward.performed += instance.OnForward;
                 @Forward.canceled += instance.OnForward;
-                @Attack.started += instance.OnAttack;
-                @Attack.performed += instance.OnAttack;
-                @Attack.canceled += instance.OnAttack;
+                @PrimaryAttack.started += instance.OnPrimaryAttack;
+                @PrimaryAttack.performed += instance.OnPrimaryAttack;
+                @PrimaryAttack.canceled += instance.OnPrimaryAttack;
+                @SecondaryAttack.started += instance.OnSecondaryAttack;
+                @SecondaryAttack.performed += instance.OnSecondaryAttack;
+                @SecondaryAttack.canceled += instance.OnSecondaryAttack;
                 @Rotation.started += instance.OnRotation;
                 @Rotation.performed += instance.OnRotation;
                 @Rotation.canceled += instance.OnRotation;
@@ -249,7 +278,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     public interface IShipMapActions
     {
         void OnForward(InputAction.CallbackContext context);
-        void OnAttack(InputAction.CallbackContext context);
+        void OnPrimaryAttack(InputAction.CallbackContext context);
+        void OnSecondaryAttack(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
     }
 }

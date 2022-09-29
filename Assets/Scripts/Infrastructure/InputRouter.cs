@@ -16,10 +16,23 @@ namespace Infrastructure
         public void PerformRouting()
         {
             _controls.Enable();
-            _controls.ShipMap.Forward.performed += SetShipForwardInput;
-            _controls.ShipMap.Forward.canceled += SetShipForwardInput;
-            _controls.ShipMap.Rotation.performed += SetShipRotationInput;
-            _controls.ShipMap.Rotation.canceled += SetShipRotationInput;
+            var shipMap = _controls.ShipMap;
+            shipMap.Forward.performed += SetShipForwardInput;
+            shipMap.Forward.canceled += SetShipForwardInput;
+            shipMap.Rotation.performed += SetShipRotationInput;
+            shipMap.Rotation.canceled += SetShipRotationInput;
+            shipMap.PrimaryAttack.performed += UsePrimaryWeapon;
+            shipMap.SecondaryAttack.performed += UseSecondaryWeapon;
+        }
+
+        private void UsePrimaryWeapon(InputAction.CallbackContext obj)
+        {
+            _ship.PrimaryWeapon.Use();
+        }
+        
+        private void UseSecondaryWeapon(InputAction.CallbackContext obj)
+        {
+            _ship.SecondaryWeapon.Use();
         }
 
         private void SetShipForwardInput(InputAction.CallbackContext ctx)

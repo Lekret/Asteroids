@@ -15,9 +15,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Attack",
+                    "name": "PrimaryAttack",
                     "type": "Button",
                     "id": "48d3488e-8f44-4c25-b7b7-0d3393509514",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SecondaryAttack",
+                    "type": "Button",
+                    "id": "518d876f-93d0-4eeb-903b-669db1a24350",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -48,11 +57,11 @@
                 {
                     "name": "",
                     "id": "817e004f-7b2d-48fd-9453-7fb9a01da500",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Attack",
+                    "action": "PrimaryAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -88,6 +97,17 @@
                     "action": "Rotation",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c0dba330-99b9-483e-9f46-847f2b35e0d4",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SecondaryAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
