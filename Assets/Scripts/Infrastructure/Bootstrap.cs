@@ -11,6 +11,8 @@ namespace Infrastructure
         [SerializeField] private Camera _camera;
         [SerializeField] private ShipConfiguration _shipConfiguration;
         [SerializeField] private GameConfiguration _gameConfiguration;
+
+        private GameLoop _gameLoop;
         
         private void Start()
         {
@@ -26,8 +28,14 @@ namespace Infrastructure
                 ufoFactory, 
                 randomizer, 
                 _gameConfiguration);
-            obstacleSpawnerFactory.Create();
+            var obstacleSpawner = obstacleSpawnerFactory.Create();
             new InputRouter(ship).Run();
+            _gameLoop = new GameLoop(obstacleSpawner);
+        }
+        
+        private void Update()
+        {
+            _gameLoop.Update(Time.deltaTime);
         }
 
         private Bounds CalculateMapBounds()
