@@ -2,6 +2,6 @@
 {
     public interface IShipCollider
     {
-        void Collide();
+        void OnCollision();
     }
 }

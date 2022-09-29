@@ -33,9 +33,9 @@ namespace View
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out ShipKiller _))
+            if (other.TryGetComponent(out ShipKillerView _))
             {
-                _ship.Collider.Collide();
+                _ship.Collider.OnCollision();
             }
         }
     }

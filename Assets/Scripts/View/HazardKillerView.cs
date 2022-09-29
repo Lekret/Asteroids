@@ -3,7 +3,7 @@
 namespace View
 {
     [RequireComponent(typeof(Collider2D))]
-    public class HazardKiller : MonoBehaviour
+    public class HazardKillerView : MonoBehaviour
     {
         
     }
