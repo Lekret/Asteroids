@@ -26,5 +26,10 @@ namespace Model.Hazards
             _position = Vector2.MoveTowards(_position, _shipMovement.Position, _speed * deltaTime);
             PositionChanged?.Invoke(_position);
         }
+
+        public void Destroy()
+        {
+            Destroyed?.Invoke();
+        }
     }
 }

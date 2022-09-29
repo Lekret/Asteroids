@@ -12,6 +12,8 @@ namespace Model.PlayerShip
             _lifetime = lifetime;
         }
 
+        public event Action Destroyed;
+
         public void Update(float deltaTime)
         {
             if (_destroyed)
@@ -25,6 +27,9 @@ namespace Model.PlayerShip
             }
         }
 
-        public event Action Destroyed;
+        public void End()
+        {
+            Update(_lifetime);
+        }
     }
 }

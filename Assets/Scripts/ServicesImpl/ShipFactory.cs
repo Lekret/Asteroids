@@ -40,7 +40,7 @@ namespace ServicesImpl
             ship.Teleport = teleport;
             ship.PrimaryWeapon = primaryWeapon;
             ship.SecondaryWeapon = secondaryWeapon;
-            ship.Collider = new ShipCollider();
+            ship.Hull = new ShipHull();
             var view = Object.Instantiate(_configuration.ShipPrefab);
             view.Init(ship);
             return ship;

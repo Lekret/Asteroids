@@ -1,4 +1,5 @@
 ﻿using System;
+using Model.Hazards;
 using UnityEngine;
 
 namespace Model.PlayerShip.Weapon
@@ -32,6 +33,18 @@ namespace Model.PlayerShip.Weapon
             _position += _direction * deltaTime;
             PositionChanged?.Invoke(_position);
             _lifetime.Update(deltaTime);
+        }
+
+        public void CollideWith(IAsteroid asteroid)
+        {
+            asteroid.Shatter();
+            _lifetime.End();
+        }
+
+        public void CollideWith(IUfo ufo)
+        {
+            ufo.Destroy();
+            _lifetime.End();
         }
     }
 }

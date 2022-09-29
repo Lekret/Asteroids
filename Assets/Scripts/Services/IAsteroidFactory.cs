@@ -1,9 +1,11 @@
 ﻿using Model.Hazards;
+using UnityEngine;
 
 namespace Services
 {
     public interface IAsteroidFactory
     {
-        IAsteroid Create(AsteroidSize size);
+        IAsteroid CreateBig();
+        IAsteroid CreateSmall(Vector3 position);
     }
 }

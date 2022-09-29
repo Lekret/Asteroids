@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Model.Hazards;
+using UnityEngine;
 
 namespace Model.PlayerShip.Weapon
 {
@@ -6,5 +7,7 @@ namespace Model.PlayerShip.Weapon
     {
         Quaternion Rotation { get; }
         void Update(float deltaTime);
+        void CollideWith(IAsteroid asteroid);
+        void CollideWith(IUfo ufo);
     }
 }

@@ -13,7 +13,7 @@ namespace Model.PlayerShip
         public IShipRotation Rotation { get; set; }
         public IShipWeapon PrimaryWeapon { get; set; }
         public IShipWeapon SecondaryWeapon { get; set; }
-        public IShipCollider Collider { get; set; }
+        public IShipHull Hull { get; set; }
 
         public void Update(float deltaTime)
         {

@@ -11,7 +11,7 @@ namespace Model.PlayerShip
         IShipRotation Rotation { get; }
         IShipWeapon PrimaryWeapon { get; }
         IShipWeapon SecondaryWeapon { get; }
-        IShipCollider Collider { get; }
+        IShipHull Hull { get; }
         void Update(float deltaTime);
     }
 }

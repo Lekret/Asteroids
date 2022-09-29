@@ -8,6 +8,7 @@ namespace View
     public class ShipView : MonoBehaviour
     {
         [SerializeField] private PositionView _positionView;
+        [SerializeField] private DestroyableView _destroyableView;
         
         private IShip _ship;
 
@@ -15,6 +16,7 @@ namespace View
         {
             _ship = ship;
             _positionView.Init(ship.Movement);
+            _destroyableView.Init(ship.Hull);
             _ship.Rotation.Changed += SetRotation;
         }
 
@@ -37,7 +39,7 @@ namespace View
         {
             if (col.TryGetComponent(out ShipKillerView _))
             {
-                _ship.Collider.OnCollision();
+                _ship.Hull.Destroy();
             }
         }
     }

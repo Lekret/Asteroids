@@ -9,7 +9,8 @@ namespace View
         [SerializeField] private DestroyableView _destroyableView;
         
         private IAsteroid _asteroid;
-        
+        public IAsteroid Asteroid => _asteroid;
+
         public void Init(IAsteroid asteroid)
         {
             _asteroid = asteroid;

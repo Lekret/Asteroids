@@ -9,7 +9,8 @@ namespace View
         [SerializeField] private DestroyableView _destroyableView;
         
         private IUfo _ufo;
-        
+        public IUfo Ufo => _ufo;
+
         public void Init(IUfo ufo)
         {
             _ufo = ufo;

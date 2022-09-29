@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace View
 {
+    [RequireComponent(typeof(Collider2D))]
+    [RequireComponent(typeof(Rigidbody2D))]
     public class BulletView : MonoBehaviour
     {
         [SerializeField] private PositionView _positionView;
@@ -21,6 +23,18 @@ namespace View
         private void Update()
         {
             _bullet.Update(Time.deltaTime);
+        }
+        
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            if (col.TryGetComponent(out AsteroidView asteroidView))
+            {
+                _bullet.CollideWith(asteroidView.Asteroid);
+            } 
+            else if (col.TryGetComponent(out UfoView ufoView))
+            {
+                _bullet.CollideWith(ufoView.Ufo);
+            }
         }
     }
 }

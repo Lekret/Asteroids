@@ -39,7 +39,7 @@ namespace Model.Hazards
         {
             if (_randomizer.Boolean())
             {
-                _asteroidFactory.Create(AsteroidSize.Big);
+                _asteroidFactory.CreateBig();
             }
             else
             {

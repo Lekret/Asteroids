@@ -21,7 +21,7 @@ namespace Infrastructure
             var map = new Map(mapBounds, randomizer);
             var shipFactory = new ShipFactory(_shipConfiguration, map);
             var ship = shipFactory.Create();
-            var asteroidFactory = new AsteroidFactory(_gameConfiguration, map);
+            var asteroidFactory = new AsteroidFactory(_gameConfiguration, map, randomizer);
             var ufoFactory = new UfoFactory(_gameConfiguration, ship.Movement, map);
             var hazardSpawnerFactory = new HazardSpawnerFactory(
                 asteroidFactory,

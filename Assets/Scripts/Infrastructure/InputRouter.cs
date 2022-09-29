@@ -15,6 +15,7 @@ namespace Infrastructure
 
         public void Run()
         {
+            _ship.Hull.Destroyed += OnShipDestroyed;
             _controls.Enable();
             var shipMap = _controls.ShipMap;
             shipMap.Forward.performed += SetShipForwardInput;
@@ -23,6 +24,12 @@ namespace Infrastructure
             shipMap.Rotation.canceled += SetShipRotationInput;
             shipMap.PrimaryAttack.performed += UsePrimaryWeapon;
             shipMap.SecondaryAttack.performed += UseSecondaryWeapon;
+        }
+
+        private void OnShipDestroyed()
+        {
+            _ship.Hull.Destroyed -= OnShipDestroyed;
+            _controls.Disable();
         }
 
         private void UsePrimaryWeapon(InputAction.CallbackContext obj)
