@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _positionView: {fileID: 8603527314989385499}
   _destroyableView: {fileID: 1222289100148560907}
+  _hazardColliderView: {fileID: 7528487500380513999}
 --- !u!114 &8603527314989385499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +86,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1147119422678687077}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 936ad70519464b4ba8ba8c982f7686eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2af25a788177498884d3a63d1d6ed56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!58 &1145209019099451130

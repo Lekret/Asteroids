@@ -17,9 +17,9 @@ namespace ServicesImpl
         public ILaser Create()
         {
             var view = Object.Instantiate(_prefab);
-            var laser = new Laser();
-            view.Init(laser);
-            return laser;
+            // var laser = new Laser();
+            // view.Init(laser);
+            return null;
         }
     }
 }

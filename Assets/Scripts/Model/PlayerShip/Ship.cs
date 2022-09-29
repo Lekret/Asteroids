@@ -1,4 +1,5 @@
 ﻿using System;
+using Model.Hazards;
 using Model.PlayerShip.Movement;
 using Model.PlayerShip.Rotation;
 using Model.PlayerShip.Teleport;
@@ -21,8 +22,13 @@ namespace Model.PlayerShip
             Movement.Update(Rotation.Current, deltaTime);
             Teleport.Update();
         }
+        
+        public void CollideWith(IAsteroid asteroid)
+        {
+            Destroyed?.Invoke();
+        }
 
-        public void Destroy()
+        public void CollideWith(IUfo ufo)
         {
             Destroyed?.Invoke();
         }
