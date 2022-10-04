@@ -1,4 +1,5 @@
 ﻿using System;
+using Model.Execution;
 using Model.Hazards;
 using Model.PlayerShip.Movement;
 using Model.PlayerShip.Rotation;
@@ -7,7 +8,7 @@ using Model.PlayerShip.Weapon;
 
 namespace Model.PlayerShip
 {
-    public class Ship : IShip
+    public class Ship : IShip, IUpdatable, IFixedUpdatable
     {
         private bool _killed;
 
@@ -26,9 +27,9 @@ namespace Model.PlayerShip
 
         public void FixedUpdate(float deltaTime)
         {
-            Rotation.Update(deltaTime);
-            Movement.Update(Rotation.Current, deltaTime);
-            Teleport.Update();
+            Rotation.FixedUpdate(deltaTime);
+            Movement.FixedUpdate(Rotation.Current, deltaTime);
+            Teleport.FixedUpdate();
         }
 
         public void CollideWith(IAsteroid asteroid)

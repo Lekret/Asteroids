@@ -1,11 +1,12 @@
 ﻿using Factories;
+using Model.Execution;
 using Model.Score;
 using Services.Randomizer;
 using UnityEngine;
 
 namespace Model.Hazards
 {
-    public class HazardSpawner : IHazardSpawner
+    public class HazardSpawner : IHazardSpawner, IUpdatable
     {
         private readonly IAsteroidFactory _asteroidFactory;
         private readonly IUfoFactory _ufoFactory;

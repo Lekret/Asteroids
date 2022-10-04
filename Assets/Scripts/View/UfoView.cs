@@ -17,10 +17,5 @@ namespace View
             _positionView.Init(ufo);
             _destroyableView.Init(ufo);
         }
-
-        private void FixedUpdate()
-        {
-            _ufo.FixedUpdate(Time.deltaTime);
-        }
     }
 }

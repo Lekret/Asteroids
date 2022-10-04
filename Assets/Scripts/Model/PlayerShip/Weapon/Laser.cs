@@ -1,10 +1,11 @@
 ﻿using System;
+using Model.Execution;
 using Model.Hazards;
 using UnityEngine;
 
 namespace Model.PlayerShip.Weapon
 {
-    public class Laser : ILaser
+    public class Laser : ILaser, IUpdatable
     {
         private readonly Lifetime _lifetime;
 

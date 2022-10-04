@@ -1,10 +1,11 @@
 ﻿using System;
+using Model.Execution;
 using Model.PlayerShip.Movement;
 using UnityEngine;
 
 namespace Model.Hazards
 {
-    public class Ufo : IUfo
+    public class Ufo : IUfo, IFixedUpdatable
     {
         private readonly IShipMovement _shipMovement;
         private readonly float _speed;

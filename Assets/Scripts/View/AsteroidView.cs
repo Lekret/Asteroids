@@ -18,15 +18,5 @@ namespace View
             _destroyableView.Init(asteroid);
             transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
         }
-
-        private void Update()
-        {
-            _asteroid.Update(Time.deltaTime);
-        }
-
-        private void FixedUpdate()
-        {
-            _asteroid.FixedUpdate(Time.deltaTime);
-        }
     }
 }

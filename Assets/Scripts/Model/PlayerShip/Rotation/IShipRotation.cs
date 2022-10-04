@@ -8,6 +8,6 @@ namespace Model.PlayerShip.Rotation
         Quaternion Current { get; }
         event Action<Quaternion> Changed;
         void SetRotationInput(float rotationInput);
-        void Update(float deltaTime);
+        void FixedUpdate(float deltaTime);
     }
 }

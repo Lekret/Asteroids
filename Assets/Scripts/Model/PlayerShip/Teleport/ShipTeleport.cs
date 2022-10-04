@@ -15,7 +15,7 @@ namespace Model.PlayerShip.Teleport
             _shipMovement = shipMovement;
         }
 
-        public void Update()
+        public void FixedUpdate()
         {
             var mapBounds = _map.Bounds;
             var teleportPosition = GetTeleportPosition(_shipMovement.Position, mapBounds.min, mapBounds.max);

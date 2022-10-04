@@ -1,10 +1,11 @@
 ﻿using System;
+using Model.Execution;
 using Model.Hazards;
 using UnityEngine;
 
 namespace Model.PlayerShip.Weapon
 {
-    public class Bullet : IBullet
+    public class Bullet : IBullet, IUpdatable, IFixedUpdatable
     {
         private readonly Vector2 _direction;
         private readonly Quaternion _rotation;

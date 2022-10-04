@@ -1,11 +1,12 @@
 ﻿using System;
+using Model.Execution;
 using Model.Hazards.Shatter;
 using Model.PlayerShip;
 using UnityEngine;
 
 namespace Model.Hazards
 {
-    public class Asteroid : IAsteroid
+    public class Asteroid : IAsteroid, IUpdatable, IFixedUpdatable
     {
         private readonly IAsteroidShatterer _asteroidShatterer;
         private readonly Vector2 _direction;

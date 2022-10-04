@@ -6,6 +6,5 @@ namespace Model.PlayerShip.Weapon
     {
         Vector2 Position { get; }
         Quaternion Rotation { get; }
-        void Update(float deltaTime);
     }
 }

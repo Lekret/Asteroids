@@ -32,7 +32,7 @@ namespace Model.PlayerShip.Movement
             }
         }
 
-        public void Update(Quaternion rotation, float deltaTime)
+        public void FixedUpdate(Quaternion rotation, float deltaTime)
         {
             var transformedInput = rotation * new Vector2(0, _forwardInput * _acceleration * deltaTime);
             _velocity += (Vector2) transformedInput;

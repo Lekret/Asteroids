@@ -18,10 +18,5 @@ namespace View
             transform.position = laser.Position;
             transform.rotation = laser.Rotation;
         }
-
-        private void Update()
-        {
-            _laser.Update(Time.deltaTime);
-        }
     }
 }

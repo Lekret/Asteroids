@@ -2,6 +2,6 @@
 {
     public interface IHazardSpawner
     {
-        void Update(float deltaTime);
+        
     }
 }

@@ -18,7 +18,7 @@ namespace Model.PlayerShip.Rotation
         public Quaternion Current => _current;
         public event Action<Quaternion> Changed;
 
-        public void Update(float deltaTime)
+        public void FixedUpdate(float deltaTime)
         {
             _eulerZ += _rotationInput * _rotationSpeed * deltaTime;
             _current = Quaternion.AngleAxis(_eulerZ, Vector3.forward);

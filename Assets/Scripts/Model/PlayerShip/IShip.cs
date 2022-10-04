@@ -13,7 +13,5 @@ namespace Model.PlayerShip
         ILaserWeapon SecondaryWeapon { get; }
         ILaserCooldown LaserCooldown { get; }
         event Action Killed;
-        void Update(float deltaTime);
-        void FixedUpdate(float deltaTime);
     }
 }

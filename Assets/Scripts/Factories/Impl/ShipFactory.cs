@@ -1,4 +1,5 @@
 ﻿using Configuration;
+using Model.Execution;
 using Model.GameMap;
 using Model.PlayerShip;
 using Model.PlayerShip.Movement;
@@ -13,11 +14,13 @@ namespace Factories.Impl
     {
         private readonly ShipConfiguration _configuration;
         private readonly IMap _map;
+        private readonly IGameLoop _gameLoop;
 
-        public ShipFactory(ShipConfiguration configuration, IMap map)
+        public ShipFactory(ShipConfiguration configuration, IMap map, IGameLoop gameLoop)
         {
             _configuration = configuration;
             _map = map;
+            _gameLoop = gameLoop;
         }
 
         public IShip Create()
@@ -29,9 +32,9 @@ namespace Factories.Impl
             var ship = new Ship();
             var rotation = new ShipRotation(_configuration.RotationSpeed);
             var teleport = new ShipTeleport(_map, movement);
-            var bulletFactory = new BulletFactory(_configuration, ship);
+            var bulletFactory = new BulletFactory(_configuration, ship, _gameLoop);
             var primaryWeapon = new BulletWeapon(bulletFactory);
-            var laserFactory = new LaserFactory(_configuration, ship);
+            var laserFactory = new LaserFactory(_configuration, ship, _gameLoop);
             var secondaryWeapon = new LaserWeapon(laserFactory, _configuration.LaserMaxAmmo);
             ship.Movement = movement;
             ship.Rotation = rotation;
@@ -41,7 +44,22 @@ namespace Factories.Impl
             ship.SecondaryWeapon = secondaryWeapon;
             var view = Object.Instantiate(_configuration.ShipPrefab);
             view.Init(ship);
+            AddToGameLoop(ship);
             return ship;
+        }
+
+        private void AddToGameLoop(Ship ship)
+        {
+            void OnShipKilled()
+            {
+                _gameLoop.RemoveUpdate(ship);
+                _gameLoop.RemoveFixedUpdate(ship);
+                ship.Killed -= OnShipKilled;
+            }
+            
+            _gameLoop.AddUpdate(ship);
+            _gameLoop.AddFixedUpdate(ship);
+            ship.Killed += OnShipKilled;
         }
     }
 }

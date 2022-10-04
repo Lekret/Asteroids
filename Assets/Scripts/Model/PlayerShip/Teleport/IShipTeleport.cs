@@ -2,6 +2,6 @@
 {
     public interface IShipTeleport
     {
-        void Update();
+        void FixedUpdate();
     }
 }

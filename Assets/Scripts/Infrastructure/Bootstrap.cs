@@ -1,7 +1,7 @@
 using Configuration;
 using Factories.Impl;
+using Model.Execution;
 using Model.GameMap;
-using Model.Hazards;
 using Model.Score;
 using Services.Pause;
 using Services.Randomizer;
@@ -18,27 +18,29 @@ namespace Infrastructure
         [SerializeField] private HazardConfiguration _hazardConfiguration;
         [SerializeField] private UiConfiguration _uiConfiguration;
 
-        private IHazardSpawner _hazardSpawner;
-
+        private GameLoop _gameLoop;
+        
         private void Start()
         {
+            _gameLoop = new GameLoop();
             var randomizer = new Randomizer();
             var pauseService = new PauseService();
             var scoreTracker = new ScoreTracker();
             var mapBounds = CalculateMapBounds();
             var sceneLoader = new SceneLoader();
             var map = new Map(mapBounds, randomizer);
-            var shipFactory = new ShipFactory(_shipConfiguration, map);
+            var shipFactory = new ShipFactory(_shipConfiguration, map, _gameLoop);
             var ship = shipFactory.Create();
-            var asteroidFactory = new AsteroidFactory(_hazardConfiguration, map, randomizer);
-            var ufoFactory = new UfoFactory(_hazardConfiguration, ship.Movement, map);
+            var asteroidFactory = new AsteroidFactory(_hazardConfiguration, map, randomizer, _gameLoop);
+            var ufoFactory = new UfoFactory(_hazardConfiguration, ship.Movement, map, _gameLoop);
             var hazardSpawnerFactory = new HazardSpawnerFactory(
                 asteroidFactory,
                 ufoFactory,
                 randomizer,
                 _hazardConfiguration,
-                scoreTracker);
-            _hazardSpawner = hazardSpawnerFactory.Create();
+                scoreTracker,
+                _gameLoop);
+            hazardSpawnerFactory.Create();
             var uiFactory = new UiFactory(_uiConfiguration, scoreTracker, sceneLoader, pauseService, ship);
             new InputRouter(ship).Run();
             uiFactory.InitRoot();
@@ -51,7 +53,12 @@ namespace Infrastructure
 
         private void Update()
         {
-            _hazardSpawner.Update(Time.deltaTime);
+            _gameLoop.Update(Time.deltaTime);
+        }
+
+        private void FixedUpdate()
+        {
+            _gameLoop.FixedUpdate(Time.deltaTime);
         }
 
         private Bounds CalculateMapBounds()
