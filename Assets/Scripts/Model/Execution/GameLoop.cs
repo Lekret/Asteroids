@@ -1,52 +1,38 @@
-﻿using System.Collections.Generic;
-
-namespace Model.Execution
+﻿namespace Model.Execution
 {
     public class GameLoop : IGameLoop
     {
-        private readonly HashSet<IUpdatable> _updates = new HashSet<IUpdatable>();
-        private readonly HashSet<IFixedUpdatable> _fixedUpdates = new HashSet<IFixedUpdatable>();
-        private readonly List<IUpdatable> _updatesReadBuffer = new List<IUpdatable>();
-        private readonly List<IFixedUpdatable> _fixedUpdatesReadBuffer = new List<IFixedUpdatable>();
+        private readonly UpdateLoop _updateLoop = new UpdateLoop();
+        private readonly FixedUpdateLoop _fixedUpdateLoop = new FixedUpdateLoop();
 
         public void AddUpdate(IUpdatable updatable)
         {
-            _updates.Add(updatable);
+            _updateLoop.Add(updatable);
         }
         
         public void RemoveUpdate(IUpdatable updatable)
         {
-            _updates.Remove(updatable);
+            _updateLoop.Remove(updatable);
         }
 
         public void AddFixedUpdate(IFixedUpdatable fixedUpdatable)
         {
-            _fixedUpdates.Add(fixedUpdatable);
+            _fixedUpdateLoop.Add(fixedUpdatable);
         }
 
         public void RemoveFixedUpdate(IFixedUpdatable fixedUpdatable)
         {
-            _fixedUpdates.Remove(fixedUpdatable);
+            _fixedUpdateLoop.Remove(fixedUpdatable);
         }
 
         public void Update(float deltaTime)
         {
-            _updatesReadBuffer.Clear();
-            _updatesReadBuffer.AddRange(_updates);
-            foreach (var updatable in _updatesReadBuffer)
-            {
-                updatable.Update(deltaTime);
-            }
+            _updateLoop.Update(deltaTime);
         }
 
         public void FixedUpdate(float deltaTime)
         {
-            _fixedUpdatesReadBuffer.Clear();
-            _fixedUpdatesReadBuffer.AddRange(_fixedUpdates);
-            foreach (var fixedUpdatable in _fixedUpdatesReadBuffer)
-            {
-                fixedUpdatable.FixedUpdate(deltaTime);
-            }
+            _fixedUpdateLoop.FixedUpdate(deltaTime);
         }
     }
 }
