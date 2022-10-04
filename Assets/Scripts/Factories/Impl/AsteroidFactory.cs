@@ -3,6 +3,7 @@ using Model.Execution;
 using Model.GameMap;
 using Model.Hazards;
 using Model.Hazards.Shatter;
+using Model.Score;
 using Services.Randomizer;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace Factories.Impl
         private readonly BigAsteroidShatterer _bigAsteroidShatterer;
         private readonly SmallAsteroidShatterer _smallAsteroidShatterer;
         private readonly IRandomizer _randomizer;
+        private readonly IScoreTracker _scoreTracker;
         private readonly IGameLoop _gameLoop;
         private readonly IMap _map;
 
@@ -21,12 +23,14 @@ namespace Factories.Impl
             IAsteroidConfiguration configuration,
             IMap map,
             IRandomizer randomizer,
-            IGameLoop gameLoop)
+            IGameLoop gameLoop,
+            IScoreTracker scoreTracker)
         {
             _configuration = configuration;
             _map = map;
             _randomizer = randomizer;
             _gameLoop = gameLoop;
+            _scoreTracker = scoreTracker;
             _bigAsteroidShatterer = new BigAsteroidShatterer(this);
             _smallAsteroidShatterer = new SmallAsteroidShatterer();
         }
@@ -44,6 +48,7 @@ namespace Factories.Impl
                 _configuration.AsteroidLifetime);
             view.Init(asteroid);
             AddToGameLoop(asteroid);
+            _scoreTracker.RegisterHazard(asteroid);
             return asteroid;
         }
 
@@ -58,6 +63,7 @@ namespace Factories.Impl
                 _configuration.AsteroidLifetime);
             view.Init(asteroid);
             AddToGameLoop(asteroid);
+            _scoreTracker.RegisterHazard(asteroid);
             return asteroid;
         }
 

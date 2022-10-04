@@ -31,14 +31,13 @@ namespace Infrastructure
             var map = new Map(mapBounds, randomizer);
             var shipFactory = new ShipFactory(_shipConfiguration, map, _gameLoop);
             var ship = shipFactory.Create();
-            var asteroidFactory = new AsteroidFactory(_hazardConfiguration, map, randomizer, _gameLoop);
-            var ufoFactory = new UfoFactory(_hazardConfiguration, ship.Movement, map, _gameLoop);
+            var asteroidFactory = new AsteroidFactory(_hazardConfiguration, map, randomizer, _gameLoop, scoreTracker);
+            var ufoFactory = new UfoFactory(_hazardConfiguration, ship.Movement, map, _gameLoop, scoreTracker);
             var hazardSpawnerFactory = new HazardSpawnerFactory(
                 asteroidFactory,
                 ufoFactory,
                 randomizer,
                 _hazardConfiguration,
-                scoreTracker,
                 _gameLoop);
             hazardSpawnerFactory.Create();
             var uiFactory = new UiFactory(_uiConfiguration, scoreTracker, sceneLoader, pauseService, ship);
