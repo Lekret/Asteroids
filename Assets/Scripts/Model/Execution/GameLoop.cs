@@ -2,9 +2,21 @@
 {
     public class GameLoop : IGameLoop
     {
-        private readonly UpdateLoop _updateLoop = new UpdateLoop();
-        private readonly FixedUpdateLoop _fixedUpdateLoop = new FixedUpdateLoop();
+        private readonly GenericLoop<IUpdatable> _updateLoop = new GenericLoop<IUpdatable>();
+        private readonly GenericLoop<IFixedUpdatable> _fixedUpdateLoop = new GenericLoop<IFixedUpdatable>();
 
+        public GameLoop ThenUpdate<T>() where T : IUpdatable
+        {
+            _updateLoop.AddToOrder<T>();
+            return this;
+        }
+        
+        public GameLoop ThenFixedUpdate<T>() where T : IFixedUpdatable
+        {
+            _fixedUpdateLoop.AddToOrder<T>();
+            return this;
+        }
+        
         public void AddUpdate(IUpdatable updatable)
         {
             _updateLoop.Add(updatable);
@@ -27,12 +39,18 @@
 
         public void Update(float deltaTime)
         {
-            _updateLoop.Update(deltaTime);
+            foreach (var item in _updateLoop.Read())
+            {
+                item.Update(deltaTime);
+            }
         }
 
         public void FixedUpdate(float deltaTime)
         {
-            _fixedUpdateLoop.FixedUpdate(deltaTime);
+            foreach (var item in _fixedUpdateLoop.Read())
+            {
+                item.FixedUpdate(deltaTime);
+            }
         }
     }
 }

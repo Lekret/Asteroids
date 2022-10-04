@@ -22,7 +22,7 @@ namespace Infrastructure
         
         private void Start()
         {
-            _gameLoop = new GameLoop();
+            _gameLoop = new GameLoop().AddDefaultExecutionOrder();
             var randomizer = new Randomizer();
             var pauseService = new PauseService();
             var scoreTracker = new ScoreTracker();
