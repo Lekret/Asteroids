@@ -32,7 +32,7 @@ namespace Model.Execution
             }
         }
 
-        public void AddToOrder<TItem>()
+        public void AddToOrder<TItem>() where TItem : T
         {
             if (_order.Contains(typeof(TItem)))
             {
