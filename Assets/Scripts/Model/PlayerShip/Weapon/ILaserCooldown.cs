@@ -6,6 +6,5 @@ namespace Model.PlayerShip.Weapon
     {
         float Cooldown { get; }
         event Action<float> CooldownChanged;
-        void Update(float deltaTime);
     }
 }

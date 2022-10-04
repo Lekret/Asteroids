@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Model.PlayerShip.Teleport
 {
-    public class ShipTeleport : IShipTeleport
+    public class ShipTeleport
     {
         private readonly IMap _map;
         private readonly IShipMovement _shipMovement;

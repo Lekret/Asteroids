@@ -12,12 +12,18 @@ namespace Model.PlayerShip
     {
         private bool _killed;
 
-        public ILaserCooldown LaserCooldown { get; set; }
-        public IShipTeleport Teleport { get; set; }
-        public IShipMovement Movement { get; set; }
-        public IShipRotation Rotation { get; set; }
-        public IShipWeapon PrimaryWeapon { get; set; }
-        public ILaserWeapon SecondaryWeapon { get; set; }
+        public LaserCooldown LaserCooldown { get; set; }
+        public ShipTeleport Teleport { get; set; }
+        public ShipMovement Movement { get; set; }
+        public ShipRotation Rotation { get; set; }
+        public BulletWeapon PrimaryWeapon { get; set; }
+        public LaserWeapon SecondaryWeapon { get; set; }
+
+        ILaserCooldown IShip.LaserCooldown => LaserCooldown;
+        IShipMovement IShip.Movement => Movement;
+        IShipRotation IShip.Rotation => Rotation;
+        IShipWeapon IShip.PrimaryWeapon => PrimaryWeapon;
+        ILaserWeapon IShip.SecondaryWeapon => SecondaryWeapon;
         public event Action Killed;
 
         public void Update(float deltaTime)
