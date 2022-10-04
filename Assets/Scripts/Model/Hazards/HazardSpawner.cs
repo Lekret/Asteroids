@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Model.Hazards
 {
-    public class HazardSpawner : IHazardSpawner, IUpdatable
+    public class HazardSpawner : IUpdatable
     {
         private readonly IAsteroidFactory _asteroidFactory;
         private readonly IUfoFactory _ufoFactory;
@@ -42,7 +42,8 @@ namespace Model.Hazards
             if (_randomizer.Boolean())
             {
                 _asteroidFactory.CreateBig();
-            } 
+            }
+
             _ufoFactory.Create();
         }
     }

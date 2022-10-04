@@ -30,7 +30,7 @@ namespace Factories.Impl
             AddToGameLoop(laser);
             return null;
         }
-        
+
         private void AddToGameLoop(Laser laser)
         {
             void OnLaserDestroyed()
@@ -38,7 +38,7 @@ namespace Factories.Impl
                 _gameLoop.RemoveUpdate(laser);
                 laser.Destroyed -= OnLaserDestroyed;
             }
-            
+
             _gameLoop.AddUpdate(laser);
             laser.Destroyed += OnLaserDestroyed;
         }

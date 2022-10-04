@@ -20,9 +20,10 @@ namespace Model.Execution
                 if (!_order.Contains(itemType))
                     _order.Insert(0, itemType);
             }
+
             items.Add(item);
         }
-        
+
         public void Remove(T item)
         {
             if (_items.TryGetValue(item.GetType(), out var items))
@@ -30,7 +31,7 @@ namespace Model.Execution
                 items.Remove(item);
             }
         }
-        
+
         public void AddToOrder<TItem>()
         {
             if (_order.Contains(typeof(TItem)))
@@ -38,9 +39,10 @@ namespace Model.Execution
                 Debug.LogError($"Type is already added to order {typeof(TItem)}");
                 return;
             }
+
             _order.Add(typeof(TItem));
         }
-        
+
         public List<T> Read()
         {
             _readBuffer.Clear();
@@ -51,6 +53,7 @@ namespace Model.Execution
                     _readBuffer.AddRange(items);
                 }
             }
+            
             return _readBuffer;
         }
     }

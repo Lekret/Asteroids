@@ -19,7 +19,7 @@ namespace Infrastructure
         [SerializeField] private UiConfiguration _uiConfiguration;
 
         private GameLoop _gameLoop;
-        
+
         private void Start()
         {
             _gameLoop = new GameLoop().AddDefaultExecutionOrder();

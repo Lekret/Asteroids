@@ -10,18 +10,18 @@
             _updateLoop.AddToOrder<T>();
             return this;
         }
-        
+
         public GameLoop ThenFixedUpdate<T>() where T : IFixedUpdatable
         {
             _fixedUpdateLoop.AddToOrder<T>();
             return this;
         }
-        
+
         public void AddUpdate(IUpdatable updatable)
         {
             _updateLoop.Add(updatable);
         }
-        
+
         public void RemoveUpdate(IUpdatable updatable)
         {
             _updateLoop.Remove(updatable);

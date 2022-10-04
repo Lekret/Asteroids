@@ -20,7 +20,7 @@ namespace Factories.Impl
             IUfoConfiguration configuration,
             IShipMovement shipMovement,
             IMap map,
-            IGameLoop gameLoop, 
+            IGameLoop gameLoop,
             IScoreTracker scoreTracker)
         {
             _configuration = configuration;
@@ -39,7 +39,7 @@ namespace Factories.Impl
             _scoreTracker.RegisterHazard(ufo);
             return ufo;
         }
-        
+
         private void AddToGameLoop(Ufo ufo)
         {
             void OnUfoDestroyed()
@@ -47,7 +47,7 @@ namespace Factories.Impl
                 _gameLoop.RemoveFixedUpdate(ufo);
                 ufo.Destroyed -= OnUfoDestroyed;
             }
-            
+
             _gameLoop.AddFixedUpdate(ufo);
             ufo.Destroyed += OnUfoDestroyed;
         }

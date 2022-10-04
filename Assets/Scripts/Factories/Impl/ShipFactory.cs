@@ -56,7 +56,7 @@ namespace Factories.Impl
                 _gameLoop.RemoveFixedUpdate(ship);
                 ship.Killed -= OnShipKilled;
             }
-            
+
             _gameLoop.AddUpdate(ship);
             _gameLoop.AddFixedUpdate(ship);
             ship.Killed += OnShipKilled;

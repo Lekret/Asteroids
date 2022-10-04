@@ -16,7 +16,7 @@ namespace Ui
         private IPauseService _pauseService;
 
         public void Init(
-            ISceneLoader sceneLoader, 
+            ISceneLoader sceneLoader,
             IPauseService pauseService,
             IScoreTracker scoreTracker)
         {

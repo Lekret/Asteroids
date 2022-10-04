@@ -13,8 +13,8 @@ namespace Factories.Impl
         private readonly IGameLoop _gameLoop;
 
         public BulletFactory(
-            ShipConfiguration shipConfiguration, 
-            IShip ship, 
+            ShipConfiguration shipConfiguration,
+            IShip ship,
             IGameLoop gameLoop)
         {
             _shipConfiguration = shipConfiguration;
@@ -44,7 +44,7 @@ namespace Factories.Impl
                 _gameLoop.RemoveFixedUpdate(bullet);
                 bullet.Destroyed -= OnBulletDestroyed;
             }
-            
+
             _gameLoop.AddUpdate(bullet);
             _gameLoop.AddFixedUpdate(bullet);
             bullet.Destroyed += OnBulletDestroyed;
