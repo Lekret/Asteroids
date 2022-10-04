@@ -43,8 +43,10 @@ namespace Model.Hazards
             {
                 _asteroidFactory.CreateBig();
             }
-
-            _ufoFactory.Create();
+            else
+            {
+                _ufoFactory.Create();
+            }
         }
     }
 }
